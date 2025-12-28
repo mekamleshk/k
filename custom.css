@@ -1,3 +1,7 @@
 .wy-nav-content {
     max-width: 100% !important;
 }
+
+footer div[role="contentinfo"] {
+    display: none;
+}
