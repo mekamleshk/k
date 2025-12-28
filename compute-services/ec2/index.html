@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>EC2 - AWS Solution Architect Associate Notes</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "EC2";
+        var mkdocs_page_input_path = "compute-services\\ec2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> AWS Solution Architect Associate Notes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Analytics and ML</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/athena/">Athena</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/comprehend/">Comprehend</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/emr/">EMR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/forecast/">Forecast</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/glue/">Glue</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/kendra/">Kendra</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/kinesis/">Kinesis</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/lex/">Lex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/polly/">Polly</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/quicksight/">QuickSight</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/rekognition/">Rekognition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/sagemaker/">SageMaker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/textract/">Textract</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/translate/">Translate</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Application Integration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/appsync/">AppSync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/eventbridge/">EventBridge</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/sns/">SNS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/sqs/">SQS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/step-functions/">Step Functions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Backup & Recovery</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backup-and-recovery/backup/">AWS Backup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backup-and-recovery/datasync/">DataSync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backup-and-recovery/glacier/">Glacier</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backup-and-recovery/storage-gateway/">Storage Gateway</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compute Services</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../api-gateway/">API Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../batch/">AWS Batch</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">EC2</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ecs/">ECS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../eks/">EKS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../elastic-beanstalk/">Elastic Beanstalk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fargate/">Fargate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lambda/">Lambda</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cost Optimization</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cost-optimization/ec2-instances/">EC2 Instances</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cost-optimization/savings-plan/">Savings Plans</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/aurora/">Aurora</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/documentdb/">DocumentDB</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/dynamodb/">DynamoDB</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/elasticache/">ElastiCache</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/neptune/">Neptune</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/qldb/">QLDB</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/rds/">RDS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/redshift-spectrum/">Redshift Spectrum</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer-tools/x-ray/">X-Ray</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Disaster Recovery & Migrations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../disaster-recovery-and-migrations/disaster-recovery/">Disaster Recovery</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hybrid Cloud</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hybrid-cloud/outposts/">Outposts</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Identity & Access</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../identity-and-access/cognito/">Cognito</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../identity-and-access/iam-identity-manager/">IAM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../identity-and-access/identity-center/">Identity Center</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Management & Governance</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/artifact/">Artifact</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/audit-manager/">Audit Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cloudformation/">CloudFormation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cloudtrail/">CloudTrail</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cloudwatch/">CloudWatch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/control-tower/">Control Tower</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/directory-service/">Directory Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/organizations/">Organizations</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Migration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration/dms/">DMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration/snowball/">Snowball</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration/transfer-family/">Transfer Family</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Networking & Connectivity</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/cloudfront/">CloudFront</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/direct-connect/">Direct Connect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/elastic-load-balancer/">Elastic Load Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/global-accelerator/">Global Accelerator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/private-link/">PrivateLink</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/route53/">Route 53</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/transit-gateway/">Transit Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/vpc-peering/">VPC Peering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/vpc/">VPC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/vpn/">VPN</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Security</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/acm/">ACM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/firewall-manager/">Firewall Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/guardduty/">GuardDuty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/inspector/">Inspector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/kms/">KMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/macie/">Macie</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/resource-access-manager/">Resource Access Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/secrets-manager/">Secrets Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/security-hub/">Security Hub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/shield/">Shield</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/waf/">WAF</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Storage</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/ebs/">Elastic Block Store (EBS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/efs/">Elastic File System (EFS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/fsx/">FSx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/s3-intelligent-tiering/">S3 Intelligent Tiering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/s3/">Amazon S3</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">AWS Solution Architect Associate Notes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Compute Services</li>
+      <li class="breadcrumb-item active">EC2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ec2-instance-types">EC2 Instance Types</h1>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<p>You can use different types of EC2 instances that are optimized for different use cases (<a href="https://aws.amazon.com/ec2/instance-types/">AWS EC2 Instance Types</a>)<br />
+AWS has the following naming convention:<br />
+<code>m5.2xlarge</code><br />
+- <strong>m:</strong> instance class<br />
+- <strong>5:</strong> generation (AWS improves them over time)<br />
+- <strong>2xlarge:</strong> size within the instance class<br />
+<br/><br/></p>
+<h1 id="general-purpose">General Purpose</h1>
+<table>
+<thead>
+<tr>
+<th>Instance Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M5, M5a, M5ad, M5d, M5dn, M5n, M5zn, M6a, M6g, M6gd, M6i, M6id, M6idn, M6in</td>
+</tr>
+<tr>
+<td>---------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>M7a, M7g, M7gd, M7i, M7i-flex, M8a, M8g, M8gb, M8gd, M8gn, M8i, M8i-flex</td>
+</tr>
+<tr>
+<td>---------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>Mac1, Mac2, Mac2-m1ultra, Mac2-m2, Mac2-m2pro, Mac-m4, Mac-m4pro</td>
+</tr>
+<tr>
+<td>---------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>T2, T3, T3a, T4g</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Provide a balance of compute, memory, and networking resources.</strong>  </li>
+<li>These instances are ideal for applications that use these resources in equal proportions, such as web servers and code repositories.  </li>
+<li>The <strong>T</strong> instance family is also referred to as burstable performance instances. These instances provide a baseline CPU performance with the ability to burst above the baseline at any time. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances in the Amazon EC2 User Guide</a>.</li>
+</ul>
+<p><br/></p>
+<h1 id="compute-optimized">Compute Optimized</h1>
+<table>
+<thead>
+<tr>
+<th>Instance Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C5, C5a, C5ad, C5d, C5n, C6a, C6g, C6gn, C6i, C6id, C6in, C7a, C7g, C7gd, C7gn</td>
+</tr>
+<tr>
+<td>--------------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>C7i, C7i-flex, C8a, C8g, C8gb, C8gd, C8gn, C8i, C8i-flex</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Designed for compute-intensive applications that benefit from high-performance processors.  </li>
+<li>These instances are ideal for batch processing workloads, media transcoding, high-performance web servers, high-performance computing (HPC), scientific modeling, dedicated gaming servers, ad server engines, and machine learning inference.  </li>
+</ul>
+<p><br/></p>
+<h1 id="memory-optimized">Memory Optimized</h1>
+<table>
+<thead>
+<tr>
+<th>Instance Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R5, R5a, R5ad, R5b, R5d, R5dn, R5n</td>
+</tr>
+<tr>
+<td>-----------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>R6a, R6g, R6gd, R6i, R6id, R6idn, R6in</td>
+</tr>
+<tr>
+<td>-----------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>R7a, R7g, R7gd, R7i, R7iz</td>
+</tr>
+<tr>
+<td>------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>R8a, R8g, R8gb, R8gd, R8gn, R8i, R8i-flex</td>
+</tr>
+<tr>
+<td>------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>U-3tb1, U-6tb1, U-9tb1, U-12tb1, U-18tb1, U-24tb1</td>
+</tr>
+<tr>
+<td>------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>U7i-6tb, U7i-8tb, U7i-12tb, U7in-16tb, U7in-24tb, U7in-32tb, U7inh-32tb</td>
+</tr>
+<tr>
+<td>------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>X1, X1e, X2gd, X2idn, X2iedn, X2iezn</td>
+</tr>
+<tr>
+<td>------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>X8g, X8aedz, z1d</td>
+</tr>
+<tr>
+<td>------------------------------------------------------------------------</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Designed to deliver fast performance for workloads that process large data sets in memory.<br />
+<br/></li>
+</ul>
+<h1 id="storage-optimized">Storage Optimized</h1>
+<table>
+<thead>
+<tr>
+<th>Instance Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2, D3, D3en, H1</td>
+</tr>
+<tr>
+<td>-----------------------------</td>
+</tr>
+<tr>
+<td>I3, I3en, I4g, I4i, I7i, I7ie</td>
+</tr>
+<tr>
+<td>-----------------------------</td>
+</tr>
+<tr>
+<td>I8g, I8ge, Im4gn, Is4gen</td>
+</tr>
+<tr>
+<td>-----------------------------</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Designed for workloads that require high, sequential read and write access to very large data sets on local storage.  </li>
+<li>They are optimized to deliver tens of thousands of low-latency, random I/O operations per second (IOPS) to applications.<br />
+<br/></li>
+</ul>
+<h2 id="accelerated-computing">Accelerated Computing</h2>
+<table>
+<thead>
+<tr>
+<th>Instance Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DL1, DL2q, F1, F2</td>
+</tr>
+<tr>
+<td>------------------------------------------</td>
+</tr>
+<tr>
+<td>G4ad, G4dn, G5, G5g, G6, G6e, G6f</td>
+</tr>
+<tr>
+<td>------------------------------------------</td>
+</tr>
+<tr>
+<td>Gr6, Gr6f, Inf1, Inf2, P4d, P4de</td>
+</tr>
+<tr>
+<td>------------------------------------------</td>
+</tr>
+<tr>
+<td>P5, P5e, P5en, P6-B200, P6-B300, P6e-GB200</td>
+</tr>
+<tr>
+<td>------------------------------------------</td>
+</tr>
+<tr>
+<td>Trn1, Trn1n, Trn2, Trn2u, VT1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Use hardware accelerators, or co-processors, to perform functions, such as floating-point number calculations, graphics processing, or data pattern matching, more efficiently than is possible in software running on CPUs.<br />
+<br/></li>
+</ul>
+<h1 id="high-performance-computing">High-Performance Computing</h1>
+<table>
+<thead>
+<tr>
+<th>Instance Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hpc6a, Hpc6id, Hpc7a, Hpc7g</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Purpose-built to offer the best price performance for running HPC workloads at scale on AWS.  </li>
+<li>These instances are ideal for applications that benefit from high-performance processors, such as large, complex simulations and deep learning workloads.<br />
+<br/></li>
+</ul>
+<hr />
+<p><br/><br/></p>
+<h1 id="ec2-instances-purchasing-options">EC2 Instances Purchasing Options</h1>
+<ul>
+<li><strong>On-Demand Instances</strong> – short workload, predictable pricing, pay by second  </li>
+<li><strong>Reserved (1 &amp; 3 years)</strong></li>
+<li><strong>Reserved Instances</strong> – long workloads  </li>
+<li><strong>Convertible Reserved Instances</strong> – long workloads with flexible instances  </li>
+<li><strong>Savings Plans (1 &amp; 3 years)</strong> – commitment to an amount of usage, long workload  </li>
+<li><strong>Spot Instances</strong> – short workloads, cheap, can lose instances (less reliable)  </li>
+<li><strong>Dedicated Hosts</strong> – book an entire physical server, control instance placement  </li>
+<li><strong>Dedicated Instances</strong> – no other customers will share your hardware  </li>
+<li><strong>Capacity Reservations</strong> – reserve capacity in a specific AZ for any duration</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="ec2-on-demand">EC2 On Demand</h2>
+<ul>
+<li>Pay for what you use:</li>
+<li>Linux or Windows - billing per second, after the first minute</li>
+<li>All other operating systems - billing per hour</li>
+<li>Has the highest cost but no upfront payment</li>
+<li>No long-term commitment</li>
+<li>Recommended for short-term and uninterrupted workloads, where you can't predict how the application will behave</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="ec2-reserved-instances">EC2 Reserved Instances</h2>
+<p><img alt="alt text" src="../image-6.png" /></p>
+<ul>
+<li>Up to 72% discount compared to On-demand</li>
+<li>You reserve a specific instance attributes (Instance Type, Region, Tenancy, OS)</li>
+<li><strong>Reservation Period</strong> – 1 year (+discount) or 3 years (+++discount)</li>
+<li><strong>Payment Options</strong> – No Upfront (+), Partial Upfront (++), All Upfront (+++)</li>
+<li>Reserved Instance’s Scope – Regional or Zonal (reserve capacity in an AZ)</li>
+<li>Recommended for steady-state usage applications (think database)</li>
+<li>You can buy and sell in the Reserved Instance Marketplace</li>
+</ul>
+<p><br/></p>
+<p><img alt="alt text" src="../image-9.png" /></p>
+<hr />
+<h3 id="convertible-reserved-instance">Convertible Reserved Instance</h3>
+<ul>
+<li>Can change the EC2 instance type, instance family, OS, scope, and tenancy</li>
+<li>Up to 66% discount  <blockquote>
+<p>Note: The % discounts are different over time – the exact numbers are not needed for the exam. This is just for illustrative purposes.</p>
+</blockquote>
+</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="ec2-savings-plans">EC2 Savings Plans</h2>
+<ul>
+<li>Get a discount based on long-term usage (up to 72% - same as RIs)</li>
+<li>Commit to a certain type of usage ($10/hour for 1 or 3 years)</li>
+<li>Usage beyond EC2 Savings Plans is billed at the On-Demand price</li>
+<li>Locked to a specific instance family &amp; AWS region (e.g., M5 in us-east-1)</li>
+<li><strong>Flexible across:</strong></li>
+<li>Instance Size (e.g., m5.xlarge, m5.2xlarge)</li>
+<li>OS (e.g., Linux, Windows)</li>
+<li>Tenancy (Host, Dedicated, Default)</li>
+</ul>
+<p><img alt="alt text" src="../image-10.png" /></p>
+<p><br/></p>
+<hr />
+<h2 id="ec2-spot-instances">EC2 Spot Instances</h2>
+<ul>
+<li>Can get a discount of up to 90% compared to On-demand</li>
+<li>Instances that you can “lose” at any point of time if your max price is less than the current spot price</li>
+<li>The MOST cost-efficient instances in AWS</li>
+<li>Useful for workloads that are resilient to failure:</li>
+<li>Batch jobs</li>
+<li>Data analysis</li>
+<li>Image processing</li>
+<li>Any distributed workloads</li>
+<li>Workloads with a flexible start and end time</li>
+<li>Not suitable for critical jobs or databases</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="ec2-dedicated-hosts">EC2 Dedicated Hosts</h2>
+<p><img alt="alt text" src="../image-7.png" /></p>
+<ul>
+<li>A physical server with EC2 instance capacity fully dedicated to your use</li>
+<li>Allows you to address compliance requirements and use your existing server-bound software licenses (per-socket, per-core, per-VM software licenses)</li>
+<li><strong>Purchasing Options:</strong></li>
+<li>On-demand – pay per second for active Dedicated Host</li>
+<li>Reserved - 1 or 3 years (No Upfront, Partial Upfront, All Upfront)</li>
+<li>The most expensive option</li>
+<li>Useful for software that has complicated licensing models (BYOL – Bring Your Own License) or for companies with strong regulatory or compliance needs</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="ec2-dedicated-instances">EC2 Dedicated Instances</h2>
+<p><img alt="alt text" src="../image-8.png" /></p>
+<ul>
+<li>Instances run on hardware that’s dedicated to you</li>
+<li>May share hardware with other instances in the same account</li>
+<li>No control over instance placement (can move hardware after Stop / Start)</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="ec2-capacity-reservations">EC2 Capacity Reservations</h2>
+<ul>
+<li>Reserve On-Demand instances capacity in a specific AZ for any duration</li>
+<li>You always have access to EC2 capacity when you need it</li>
+<li>No time commitment (create/cancel anytime), no billing discounts</li>
+<li>Combine with Regional Reserved Instances and Savings Plans to benefit from billing discounts</li>
+<li>You’re charged at On-Demand rate whether you run instances or not</li>
+<li>Suitable for short-term, uninterrupted workloads that need to be in a specific AZ</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="which-purchasing-option-is-right-for-me">Which purchasing option is right for me?</h2>
+<ul>
+<li><strong>On demand</strong>: coming and staying in resort whenever we like, we pay the full price</li>
+<li><strong>Reserved</strong>: like planning ahead and if we plan to stay for a long time, we may get a good discount.</li>
+<li><strong>Savings Plans</strong>: pay a certain amount per hour for a certain period and stay in any room type (e.g., King, Suite, Sea View)</li>
+<li><strong>Spot instances</strong>: the hotel allows people to bid for the empty rooms and the highest bidder keeps the rooms. You can get kicked out at any time</li>
+<li><strong>Dedicated Hosts</strong>: We book an entire building of the resort</li>
+<li><strong>Capacity Reservations</strong>: you book a room for a period with full price even if you don’t stay in it</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="price-comparison">Price Comparison</h2>
+<p><strong>Example – m4.large – us-east-1</strong></p>
+<table>
+<thead>
+<tr>
+<th>Price Type</th>
+<th>Price (per hour)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On-Demand</td>
+<td>$0.10</td>
+</tr>
+<tr>
+<td>Spot Instance (Spot Price)</td>
+<td>$0.038 - $0.039 (up to 61% off)</td>
+</tr>
+<tr>
+<td>Reserved Instance (1 year)</td>
+<td>$0.062 (No Upfront) - $0.058 (All Upfront)</td>
+</tr>
+<tr>
+<td>Reserved Instance (3 years)</td>
+<td>$0.043 (No Upfront) - $0.037 (All Upfront)</td>
+</tr>
+<tr>
+<td>EC2 Savings Plan (1 year)</td>
+<td>$0.062 (No Upfront) - $0.058 (All Upfront)</td>
+</tr>
+<tr>
+<td>Reserved Convertible Instance (1 year)</td>
+<td>$0.071 (No Upfront) - $0.066 (All Upfront)</td>
+</tr>
+<tr>
+<td>Dedicated Host On-Demand Price</td>
+<td>[Varies by instance]</td>
+</tr>
+<tr>
+<td>Dedicated Host Reservation</td>
+<td>Up to 70% off</td>
+</tr>
+<tr>
+<td>Capacity Reservations</td>
+<td>On-Demand Price</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<hr />
+<h2 id="ec2-spot-instance-requests">EC2 Spot Instance Requests</h2>
+<ul>
+<li>Can get a discount of up to 90% compared to On-demand</li>
+<li>Define max spot price and get the instance while current spot price &lt; max</li>
+<li>The hourly spot price varies based on offer and capacity</li>
+<li>
+<p>If the current spot price &gt; your max price, you can choose to stop or terminate your instance with a 2-minute grace period.</p>
+</li>
+<li>
+<p>Used for batch jobs, data analysis, or workloads that are resilient to failures.</p>
+</li>
+<li>Not great for critical jobs or databases</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="ec2-spot-instances-pricing">EC2 Spot Instances Pricing</h2>
+<p><a href="https://console.aws.amazon.com/ec2sp/v1/spot/home?region=us-east-1#">EC2 Spot Instance Pricing</a></p>
+<p><img alt="alt text" src="../image.png" /></p>
+<p><br/></p>
+<hr />
+<h2 id="how-to-terminate-spot-instances">How to terminate Spot Instances?</h2>
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance Termination Guide</a></p>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<ul>
+<li>You can only cancel Spot Instance requests that are open, active, or disabled.</li>
+<li>Cancelling a Spot Request does not terminate instances.</li>
+<li>You must first cancel a Spot Request, and then terminate the associated Spot Instances.</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="spot-fleets">Spot Fleets</h2>
+<ul>
+<li><strong>Spot Fleets</strong> = set of Spot Instances + (optional) On-Demand Instances</li>
+<li>The Spot Fleet will try to meet the target capacity with price constraints</li>
+<li>Define possible launch pools: instance type (m5.large), OS, Availability Zone</li>
+<li>Can have multiple launch pools, so that the fleet can choose</li>
+<li>Spot Fleet stops launching instances when reaching capacity or max cost</li>
+<li>Strategies to allocate Spot Instances:</li>
+<li><strong>lowestPrice</strong>: from the pool with the lowest price (cost optimization, short workload)</li>
+<li><strong>diversified</strong>: distributed across all pools (great for availability, long workloads)</li>
+<li><strong>capacityOptimized</strong>: pool with the optimal capacity for the number of instances</li>
+<li><strong>priceCapacityOptimized</strong> (recommended): pools with the highest capacity available, then select the pool with the lowest price (best choice for most workloads)</li>
+<li>Spot Fleets allow us to automatically request Spot Instances with the lowest price</li>
+</ul>
+<p><br/></p>
+<h2 id="-">---</h2>
+<p><br/><br/></p>
+<h1 id="placement-groups">Placement Groups</h1>
+<ul>
+<li>Sometimes you want control over the EC2 Instance placement strategy.</li>
+<li>That strategy can be defined using <strong>placement groups</strong>.</li>
+<li>
+<p>When you create a placement group, you specify one of the following strategies for the group:</p>
+</li>
+<li>
+<p><strong>Cluster</strong>—clusters instances into a low-latency group in a single Availability Zone.</p>
+</li>
+<li><strong>Spread</strong>—spreads instances across underlying hardware (max 7 instances per group per AZ).</li>
+<li><strong>Partition</strong>—spreads instances across many different partitions (which rely on different sets of racks) within an AZ. Scales to 100s of EC2 instances per group (Hadoop, Cassandra, Kafka).</li>
+</ul>
+<hr />
+<p><br/></p>
+<h2 id="cluster-placement-group">Cluster Placement Group</h2>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- Great network (10 Gbps bandwidth between instances with Enhanced Networking enabled - recommended)</td>
+<td>- If the AZ fails, all instances fail at the same time.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use case:</strong>
+- Big Data job that needs to complete fast
+- Application that needs extremely low latency and high network throughput</p>
+<hr />
+<h2 id="placement-groups-spread">Placement Groups Spread</h2>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- Can span across Availability Zones (AZ)</td>
+<td>- Limited to 7 instances per AZ per placement group</td>
+</tr>
+<tr>
+<td>- Reduced risk of simultaneous failure</td>
+<td></td>
+</tr>
+<tr>
+<td>- EC2 Instances are on different physical hardware</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use case:</strong></p>
+<ul>
+<li>Application that needs to maximize high availability</li>
+<li>Critical applications where each instance must be isolated from failure from each other</li>
+</ul>
+<hr />
+<h2 id="placements-groups-partition">Placements Groups Partition</h2>
+<p><img alt="alt text" src="../image-4.png" />
+* Up to 7 partitions per AZ.
+* Can span across multiple AZs in the same region.
+* Up to 100s of EC2 instances.
+* The instances in a partition do not share racks with the instances in the other partitions.
+* A partition failure can affect many EC2 instances but won’t affect other partitions.
+* EC2 instances get access to the partition information as metadata.</p>
+<p><strong>Use cases:</strong> HDFS, HBase, Cassandra, Kafka.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../batch/" class="btn btn-neutral float-left" title="AWS Batch"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ecs/" class="btn btn-neutral float-right" title="ECS">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../batch/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ecs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

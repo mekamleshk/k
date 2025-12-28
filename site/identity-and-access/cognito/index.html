@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Cognito - AWS Solution Architect Associate Notes</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Cognito";
+        var mkdocs_page_input_path = "identity-and-access\\cognito.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> AWS Solution Architect Associate Notes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Analytics and ML</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/athena/">Athena</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/comprehend/">Comprehend</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/emr/">EMR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/forecast/">Forecast</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/glue/">Glue</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/kendra/">Kendra</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/kinesis/">Kinesis</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/lex/">Lex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/polly/">Polly</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/quicksight/">QuickSight</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/rekognition/">Rekognition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/sagemaker/">SageMaker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/textract/">Textract</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/translate/">Translate</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Application Integration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/appsync/">AppSync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/eventbridge/">EventBridge</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/sns/">SNS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/sqs/">SQS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/step-functions/">Step Functions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Backup & Recovery</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backup-and-recovery/backup/">AWS Backup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backup-and-recovery/datasync/">DataSync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backup-and-recovery/glacier/">Glacier</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../backup-and-recovery/storage-gateway/">Storage Gateway</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compute Services</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute-services/api-gateway/">API Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute-services/batch/">AWS Batch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute-services/ec2/">EC2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute-services/ecs/">ECS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute-services/eks/">EKS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute-services/elastic-beanstalk/">Elastic Beanstalk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute-services/fargate/">Fargate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute-services/lambda/">Lambda</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cost Optimization</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cost-optimization/ec2-instances/">EC2 Instances</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cost-optimization/savings-plan/">Savings Plans</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/aurora/">Aurora</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/documentdb/">DocumentDB</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/dynamodb/">DynamoDB</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/elasticache/">ElastiCache</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/neptune/">Neptune</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/qldb/">QLDB</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/rds/">RDS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/redshift-spectrum/">Redshift Spectrum</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer-tools/x-ray/">X-Ray</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Disaster Recovery & Migrations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../disaster-recovery-and-migrations/disaster-recovery/">Disaster Recovery</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hybrid Cloud</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hybrid-cloud/outposts/">Outposts</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Identity & Access</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Cognito</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../iam-identity-manager/">IAM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../identity-center/">Identity Center</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Management & Governance</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/artifact/">Artifact</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/audit-manager/">Audit Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cloudformation/">CloudFormation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cloudtrail/">CloudTrail</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cloudwatch/">CloudWatch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/control-tower/">Control Tower</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/directory-service/">Directory Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/organizations/">Organizations</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Migration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration/dms/">DMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration/snowball/">Snowball</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration/transfer-family/">Transfer Family</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Networking & Connectivity</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/cloudfront/">CloudFront</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/direct-connect/">Direct Connect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/elastic-load-balancer/">Elastic Load Balancer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/global-accelerator/">Global Accelerator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/private-link/">PrivateLink</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/route53/">Route 53</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/transit-gateway/">Transit Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/vpc-peering/">VPC Peering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/vpc/">VPC</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-connectivity/vpn/">VPN</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Security</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/acm/">ACM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/firewall-manager/">Firewall Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/guardduty/">GuardDuty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/inspector/">Inspector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/kms/">KMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/macie/">Macie</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/resource-access-manager/">Resource Access Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/secrets-manager/">Secrets Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/security-hub/">Security Hub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/shield/">Shield</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security/waf/">WAF</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Storage</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/ebs/">Elastic Block Store (EBS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/efs/">Elastic File System (EFS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/fsx/">FSx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/s3-intelligent-tiering/">S3 Intelligent Tiering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/s3/">Amazon S3</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">AWS Solution Architect Associate Notes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Identity & Access</li>
+      <li class="breadcrumb-item active">Cognito</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="cognito">Cognito</h1>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../hybrid-cloud/outposts/" class="btn btn-neutral float-left" title="Outposts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../iam-identity-manager/" class="btn btn-neutral float-right" title="IAM">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../hybrid-cloud/outposts/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../iam-identity-manager/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
