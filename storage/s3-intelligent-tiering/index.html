@@ -280,6 +280,9 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="s3-intelligent-tiering">S3 Intelligent-Tiering</h1>
+<p>S3 Intelligent-Tiering charges a small monitoring and automation charge, and has a minimum eligible object size of 128KB for auto-tiering. Smaller objects may be stored, but will always be charged at the Frequent Access tier rates, and are not charged the monitoring and automation charge. See the Amazon S3 Pricing for more information. Standard retrievals in archive access tier and deep archive access tier are free. Using the S3 console, you can pay for expedited retrievals if you need faster access to your data from the archive access tiers. S3 Intelligent-Tiering first byte latency for frequent and infrequent access tier is milliseconds access time, and the archive access and deep archive access tiers first byte latency is minutes or hours.</p>
+<p>** In the unlikely case of the loss or damage to all or part of an AWS Availability Zone, data in a One Zone storage class may be lost. For example, events like fire and water damage could result in data loss. Apart from these types of events, our One Zone storage classes use similar engineering designs as our Regional storage classes to protect objects from independent disk, host, and rack-level failures, and each are designed to deliver 99.999999999% data durability.</p>
+<p>*** S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive require 40 KB of additional metadata for each archived object. This includes 32 KB of metadata charged at the S3 Glacier Flexible Retrieval rate required to identify and retrieve your data. And, an additional 8 KB data charged at the S3 Standard rate which is required to maintain the user-defined name and metadata for objects archived to S3 Glacier Flexible Retrieval.</p>
               
             </div>
           </div><footer>
