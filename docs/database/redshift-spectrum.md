@@ -1,2 +1,0 @@
-# Redshift Spectrum
-
