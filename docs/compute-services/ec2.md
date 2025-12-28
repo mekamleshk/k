@@ -10,6 +10,7 @@ AWS has the following naming convention:
 - **2xlarge:** size within the instance class  
 <br/><br/>
 
+
 # General Purpose
 
 | Instance Types                                                              |
