@@ -26,7 +26,8 @@
 
 ## EBS – Delete on Termination Attribute
 
-![alt text](image.png)
+<img src="image.png" alt="alt text">
+
 - **Controls the EBS behavior when an EC2 instance terminates**:
   - By default, the root EBS volume is deleted (attribute enabled).
   - By default, any other attached EBS volume is not deleted (attribute disabled).
@@ -37,7 +38,8 @@
 ---
 
 ## EBS Snapshots
-![alt text](image-1.png)
+<img src="image-1.png" alt="alt text" width="900" height="500">
+
 - Make a backup (snapshot) of your EBS volume at a point in time.
 - It’s not necessary to detach the volume to do a snapshot, but it’s recommended.
 - Snapshots can be copied across AZs or Regions.

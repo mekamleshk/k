@@ -330,18 +330,22 @@
 </ul>
 <hr />
 <h2 id="ebs-delete-on-termination-attribute">EBS – Delete on Termination Attribute</h2>
-<p><img alt="alt text" src="../image.png" />
-- <strong>Controls the EBS behavior when an EC2 instance terminates</strong>:
-  - By default, the root EBS volume is deleted (attribute enabled).
-  - By default, any other attached EBS volume is not deleted (attribute disabled).
-- This can be controlled by the AWS console or AWS CLI.
-- <strong>Use case</strong>: Preserve the root volume when an instance is terminated.</p>
+<p><img src="image.png" alt="alt text"></p>
+<ul>
+<li><strong>Controls the EBS behavior when an EC2 instance terminates</strong>:</li>
+<li>By default, the root EBS volume is deleted (attribute enabled).</li>
+<li>By default, any other attached EBS volume is not deleted (attribute disabled).</li>
+<li>This can be controlled by the AWS console or AWS CLI.</li>
+<li><strong>Use case</strong>: Preserve the root volume when an instance is terminated.</li>
+</ul>
 <hr />
 <h2 id="ebs-snapshots">EBS Snapshots</h2>
-<p><img alt="alt text" src="../image-1.png" />
-- Make a backup (snapshot) of your EBS volume at a point in time.
-- It’s not necessary to detach the volume to do a snapshot, but it’s recommended.
-- Snapshots can be copied across AZs or Regions.</p>
+<p><img src="image-1.png" alt="alt text" width="900" height="500"></p>
+<ul>
+<li>Make a backup (snapshot) of your EBS volume at a point in time.</li>
+<li>It’s not necessary to detach the volume to do a snapshot, but it’s recommended.</li>
+<li>Snapshots can be copied across AZs or Regions.</li>
+</ul>
 <hr />
 <h2 id="ebs-snapshots-features">EBS Snapshots Features</h2>
 <p><img alt="alt text" src="../image-2.png" /></p>

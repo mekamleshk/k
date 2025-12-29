@@ -280,7 +280,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="ec2-instance-types">EC2 Instance Types</h1>
-<p><img alt="alt text" src="../image-5.png" /></p>
+<p><img src="image-5.png" alt="alt text" width="900" height="500"></p>
 <p>You can use different types of EC2 instances that are optimized for different use cases (<a href="https://aws.amazon.com/ec2/instance-types/">AWS EC2 Instance Types</a>)<br />
 AWS has the following naming convention:<br />
 <code>m5.2xlarge</code><br />
@@ -531,7 +531,7 @@ AWS has the following naming convention:<br />
 <p><br/></p>
 <hr />
 <h2 id="ec2-reserved-instances">EC2 Reserved Instances</h2>
-<p><img alt="alt text" src="../image-6.png" /></p>
+<p><img src="image-6.png" alt="alt text" width="900" height="500"></p>
 <ul>
 <li>Up to 72% discount compared to On-demand</li>
 <li>You reserve a specific instance attributes (Instance Type, Region, Tenancy, OS)</li>
@@ -542,7 +542,7 @@ AWS has the following naming convention:<br />
 <li>You can buy and sell in the Reserved Instance Marketplace</li>
 </ul>
 <p><br/></p>
-<p><img alt="alt text" src="../image-9.png" /></p>
+<p><img src="image-9.png" alt="alt text" width="900" height="500"></p>
 <hr />
 <h3 id="convertible-reserved-instance">Convertible Reserved Instance</h3>
 <ul>
@@ -565,7 +565,7 @@ AWS has the following naming convention:<br />
 <li>OS (e.g., Linux, Windows)</li>
 <li>Tenancy (Host, Dedicated, Default)</li>
 </ul>
-<p><img alt="alt text" src="../image-10.png" /></p>
+<p><img src="image-10.png" alt="alt text" width="900" height="500"></p>
 <p><br/></p>
 <hr />
 <h2 id="ec2-spot-instances">EC2 Spot Instances</h2>
@@ -584,7 +584,7 @@ AWS has the following naming convention:<br />
 <p><br/></p>
 <hr />
 <h2 id="ec2-dedicated-hosts">EC2 Dedicated Hosts</h2>
-<p><img alt="alt text" src="../image-7.png" /></p>
+<p><img src="image-7.png" alt="alt text" width="900" height="500"></p>
 <ul>
 <li>A physical server with EC2 instance capacity fully dedicated to your use</li>
 <li>Allows you to address compliance requirements and use your existing server-bound software licenses (per-socket, per-core, per-VM software licenses)</li>
@@ -597,7 +597,7 @@ AWS has the following naming convention:<br />
 <p><br/></p>
 <hr />
 <h2 id="ec2-dedicated-instances">EC2 Dedicated Instances</h2>
-<p><img alt="alt text" src="../image-8.png" /></p>
+<p><img src="image-8.png" alt="alt text" width="900" height="500"></p>
 <ul>
 <li>Instances run on hardware that’s dedicated to you</li>
 <li>May share hardware with other instances in the same account</li>
@@ -694,12 +694,12 @@ AWS has the following naming convention:<br />
 <hr />
 <h2 id="ec2-spot-instances-pricing">EC2 Spot Instances Pricing</h2>
 <p><a href="https://console.aws.amazon.com/ec2sp/v1/spot/home?region=us-east-1#">EC2 Spot Instance Pricing</a></p>
-<p><img alt="alt text" src="../image.png" /></p>
+<p><img src="image.png" alt="alt text" width="900" height="500"></p>
 <p><br/></p>
 <hr />
 <h2 id="how-to-terminate-spot-instances">How to terminate Spot Instances?</h2>
 <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance Termination Guide</a></p>
-<p><img alt="alt text" src="../image-1.png" /></p>
+<p><img src="image-1.png" alt="alt text" width="900" height="500"></p>
 <ul>
 <li>You can only cancel Spot Instance requests that are open, active, or disabled.</li>
 <li>Cancelling a Spot Request does not terminate instances.</li>
@@ -740,7 +740,7 @@ AWS has the following naming convention:<br />
 <hr />
 <p><br/></p>
 <h2 id="cluster-placement-group">Cluster Placement Group</h2>
-<p><img alt="alt text" src="../image-2.png" /></p>
+<p><img src="image-2.png" alt="alt text" width="900" height="200"></p>
 <table>
 <thead>
 <tr>
@@ -760,7 +760,7 @@ AWS has the following naming convention:<br />
 - Application that needs extremely low latency and high network throughput</p>
 <hr />
 <h2 id="placement-groups-spread">Placement Groups Spread</h2>
-<p><img alt="alt text" src="../image-3.png" /></p>
+<p><img src="image-3.png" alt="alt text" width="900" height="400"></p>
 <table>
 <thead>
 <tr>
@@ -790,13 +790,15 @@ AWS has the following naming convention:<br />
 </ul>
 <hr />
 <h2 id="placements-groups-partition">Placements Groups Partition</h2>
-<p><img alt="alt text" src="../image-4.png" />
-* Up to 7 partitions per AZ.
-* Can span across multiple AZs in the same region.
-* Up to 100s of EC2 instances.
-* The instances in a partition do not share racks with the instances in the other partitions.
-* A partition failure can affect many EC2 instances but won’t affect other partitions.
-* EC2 instances get access to the partition information as metadata.</p>
+<p><img src="image-4.png" alt="alt text" width="900" height="500"></p>
+<ul>
+<li>Up to 7 partitions per AZ.</li>
+<li>Can span across multiple AZs in the same region.</li>
+<li>Up to 100s of EC2 instances.</li>
+<li>The instances in a partition do not share racks with the instances in the other partitions.</li>
+<li>A partition failure can affect many EC2 instances but won’t affect other partitions.</li>
+<li>EC2 instances get access to the partition information as metadata.</li>
+</ul>
 <p><strong>Use cases:</strong> HDFS, HBase, Cassandra, Kafka.</p>
               
             </div>

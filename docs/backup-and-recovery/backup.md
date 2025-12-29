@@ -30,7 +30,7 @@
 - **Transition to Cold Storage:** (Never, Days, Weeks, Months, Years)
 - **Retention Period:** (Always, Days, Weeks, Months, Years)
 
-![alt text](image.png)
+<img src="image.png" alt="alt text" width="900" height="500">
 ---
 
 ## AWS Backup - Create Backup Plan

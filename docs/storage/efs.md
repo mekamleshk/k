@@ -4,7 +4,8 @@
 - EFS works with EC2 instances in multi-AZ.
 - Highly available, scalable, and pay-per-use (expensive, 3x the price of gp2).
 
-![alt text](image-5.png)
+<img src="image-5.png" alt="alt text" width="900" height="500">
+
 
 **Use cases**: Content management, web serving, data sharing, WordPress.
 
@@ -34,8 +35,9 @@
   - **Elastic** – automatically scales throughput based on workload.
 
 - **Storage Tiers**:
-- 
-  ![alt text](image-6.png)
+
+<img src="image-6.png" alt="alt text" width="700" height="700">
+
   - **Standard**: For frequently accessed files.
   - **Infrequent Access (EFS-IA)**: Lower price for less frequently accessed data.
   - **Archive**: Rarely accessed data, 50% cheaper.
@@ -44,7 +46,8 @@
 
 ## EBS vs EFS – Elastic Block Storage
 
-![alt text](image-7.png)
+<img src="image-7.png" alt="alt text" width="900" height="500">
+
 
 # EBS vs EFS
 

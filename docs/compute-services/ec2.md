@@ -1,6 +1,6 @@
 # EC2 Instance Types
 
-![alt text](image-5.png)
+<img src="image-5.png" alt="alt text" width="900" height="500">
 
 You can use different types of EC2 instances that are optimized for different use cases ([AWS EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/))  
 AWS has the following naming convention:  
@@ -142,7 +142,7 @@ AWS has the following naming convention:
 
 ## EC2 Reserved Instances
 
-![alt text](image-6.png)
+<img src="image-6.png" alt="alt text" width="900" height="500">
 
 - Up to 72% discount compared to On-demand
 - You reserve a specific instance attributes (Instance Type, Region, Tenancy, OS)
@@ -154,7 +154,7 @@ AWS has the following naming convention:
 
 <br/>
 
-![alt text](image-9.png)
+<img src="image-9.png" alt="alt text" width="900" height="500">
 
 ---
 ### Convertible Reserved Instance
@@ -179,7 +179,7 @@ AWS has the following naming convention:
   - OS (e.g., Linux, Windows)
   - Tenancy (Host, Dedicated, Default)
 
-![alt text](image-10.png)
+<img src="image-10.png" alt="alt text" width="900" height="500">
 
 <br/>
 
@@ -205,7 +205,7 @@ AWS has the following naming convention:
 
 ## EC2 Dedicated Hosts
 
-![alt text](image-7.png)
+<img src="image-7.png" alt="alt text" width="900" height="500">
 
 - A physical server with EC2 instance capacity fully dedicated to your use
 - Allows you to address compliance requirements and use your existing server-bound software licenses (per-socket, per-core, per-VM software licenses)
@@ -222,7 +222,7 @@ AWS has the following naming convention:
 
 ## EC2 Dedicated Instances
 
-![alt text](image-8.png)
+<img src="image-8.png" alt="alt text" width="900" height="500">
 
 
 - Instances run on hardware that’s dedicated to you
@@ -302,8 +302,7 @@ AWS has the following naming convention:
 
 [EC2 Spot Instance Pricing](https://console.aws.amazon.com/ec2sp/v1/spot/home?region=us-east-1#)
 
-![alt text](image.png)
-
+<img src="image.png" alt="alt text" width="900" height="500">
 
 <br/>
 
@@ -313,7 +312,8 @@ AWS has the following naming convention:
 
 [Spot Instance Termination Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html)
 
-![alt text](image-1.png)
+<img src="image-1.png" alt="alt text" width="900" height="500">
+
 
 - You can only cancel Spot Instance requests that are open, active, or disabled.
 - Cancelling a Spot Request does not terminate instances.
@@ -360,7 +360,7 @@ AWS has the following naming convention:
 
 ## Cluster Placement Group
 
-![alt text](image-2.png)
+<img src="image-2.png" alt="alt text" width="900" height="200">
 
 | Pros                                                                                                 | Cons                                                    |
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
@@ -374,7 +374,8 @@ AWS has the following naming convention:
 
 ## Placement Groups Spread
 
-![alt text](image-3.png)
+<img src="image-3.png" alt="alt text" width="900" height="400">
+
 
 | Pros                                               | Cons                                                |
 | -------------------------------------------------- | --------------------------------------------------- |
@@ -391,12 +392,13 @@ AWS has the following naming convention:
 
 ## Placements Groups Partition
 
-![alt text](image-4.png)
-* Up to 7 partitions per AZ.
-* Can span across multiple AZs in the same region.
-* Up to 100s of EC2 instances.
-* The instances in a partition do not share racks with the instances in the other partitions.
-* A partition failure can affect many EC2 instances but won’t affect other partitions.
-* EC2 instances get access to the partition information as metadata.
+<img src="image-4.png" alt="alt text" width="900" height="500">
+
+- Up to 7 partitions per AZ.
+- Can span across multiple AZs in the same region.
+- Up to 100s of EC2 instances.
+- The instances in a partition do not share racks with the instances in the other partitions.
+- A partition failure can affect many EC2 instances but won’t affect other partitions.
+- EC2 instances get access to the partition information as metadata.
 
 **Use cases:** HDFS, HBase, Cassandra, Kafka.
