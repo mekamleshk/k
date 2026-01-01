@@ -177,5 +177,4 @@ Welcome to the documentation for the AWS Solution Architect Associate certificat
 - [Amazon Elastic File System (Amazon EFS)](storage/efs.md)
 - [Amazon FSx (for all types)](storage/fsx.md)
 - [Amazon S3](storage/s3.md)
-- [Amazon S3 Glacier](storage/s3-glacier.md)
 - [AWS Storage Gateway](storage/storage-gateway.md)
