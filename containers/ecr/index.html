@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Amazon Elastic Container Registry (Amazon ECR) - AWS Solution Architect Associate Notes</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Amazon Elastic Container Registry (Amazon ECR)";
+        var mkdocs_page_input_path = "containers\\ecr.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> AWS Solution Architect Associate Notes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Analytics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/athena/">Amazon Athena</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/data-exchange/">AWS Data Exchange</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/data-pipeline/">AWS Data Pipeline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/emr/">Amazon EMR</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/glue/">AWS Glue</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/kinesis/">Amazon Kinesis</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/lake-formation/">AWS Lake Formation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/msk/">Amazon Managed Streaming for Apache Kafka (Amazon MSK)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/opensearch/">Amazon OpenSearch Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/quicksight/">Amazon QuickSight</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../analytics-and-ml/redshift/">Amazon Redshift</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Application Integration</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/appflow/">Amazon AppFlow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/appsync/">AWS AppSync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/eventbridge/">Amazon EventBridge</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/mq/">Amazon MQ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/sns/">Amazon Simple Notification Service (Amazon SNS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/sqs/">Amazon Simple Queue Service (Amazon SQS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../application-integration/step-functions/">AWS Step Functions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">AWS Cost Management</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cost-management/budgets/">AWS Budgets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cost-management/cost-usage-report/">AWS Cost and Usage Report</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cost-management/cost-explorer/">AWS Cost Explorer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cost-management/savings-plans/">Savings Plans</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compute</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute/batch/">AWS Batch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute/ec2/">Amazon EC2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute/ec2-auto-scaling/">Amazon EC2 Auto Scaling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute/elastic-beanstalk/">AWS Elastic Beanstalk</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute/outposts/">AWS Outposts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute/serverless-application-repository/">AWS Serverless Application Repository</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute/vmware-cloud-on-aws/">VMware Cloud on AWS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../compute/wavelength/">AWS Wavelength</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Containers</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ecs-anywhere/">Amazon ECS Anywhere</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../eks-anywhere/">Amazon EKS Anywhere</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../eks-distro/">Amazon EKS Distro</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Amazon Elastic Container Registry (Amazon ECR)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ecs/">Amazon Elastic Container Service (Amazon ECS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../eks/">Amazon Elastic Kubernetes Service (Amazon EKS)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/aurora/">Amazon Aurora</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/aurora-serverless/">Amazon Aurora Serverless</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/documentdb/">Amazon DocumentDB (with MongoDB compatibility)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/dynamodb/">Amazon DynamoDB</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/elasticache/">Amazon ElastiCache</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/keyspaces/">Amazon Keyspaces (for Apache Cassandra)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/neptune/">Amazon Neptune</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/qldb/">Amazon Quantum Ledger Database (Amazon QLDB)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/rds/">Amazon RDS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../database/redshift/">Amazon Redshift</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Developer Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer-tools/x-ray/">AWS X-Ray</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Front-End Web and Mobile</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../front-end-web-and-mobile/amplify/">AWS Amplify</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../front-end-web-and-mobile/api-gateway/">Amazon API Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../front-end-web-and-mobile/device-farm/">AWS Device Farm</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../front-end-web-and-mobile/pinpoint/">Amazon Pinpoint</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Machine Learning</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/comprehend/">Amazon Comprehend</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/forecast/">Amazon Forecast</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/fraud-detector/">Amazon Fraud Detector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/kendra/">Amazon Kendra</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/lex/">Amazon Lex</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/polly/">Amazon Polly</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/rekognition/">Amazon Rekognition</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/sagemaker/">Amazon SageMaker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/textract/">Amazon Textract</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/transcribe/">Amazon Transcribe</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/translate/">Amazon Translate</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Management and Governance</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/auto-scaling/">AWS Auto Scaling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cloudformation/">AWS CloudFormation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cloudtrail/">AWS CloudTrail</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cloudwatch/">Amazon CloudWatch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/cli/">AWS Command Line Interface (AWS CLI)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/compute-optimizer/">AWS Compute Optimizer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/config/">AWS Config</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/control-tower/">AWS Control Tower</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/health-dashboard/">AWS Health Dashboard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/license-manager/">AWS License Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/managed-grafana/">Amazon Managed Grafana</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/managed-prometheus/">Amazon Managed Service for Prometheus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/management-console/">AWS Management Console</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/organizations/">AWS Organizations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/proton/">AWS Proton</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/service-catalog/">AWS Service Catalog</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/systems-manager/">AWS Systems Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/trusted-advisor/">AWS Trusted Advisor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../management-and-governance/well-architected-tool/">AWS Well-Architected Tool</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Media Services</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../media-services/elastic-transcoder/">Amazon Elastic Transcoder</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../media-services/kinesis-video-streams/">Amazon Kinesis Video Streams</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Migration and Transfer</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration-and-transfer/application-discovery-service/">AWS Application Discovery Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration-and-transfer/application-migration-service/">AWS Application Migration Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration-and-transfer/dms/">AWS Database Migration Service (AWS DMS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration-and-transfer/datasync/">AWS DataSync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration-and-transfer/migration-hub/">AWS Migration Hub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration-and-transfer/snow-family/">AWS Snow Family</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../migration-and-transfer/transfer-family/">AWS Transfer Family</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Networking and Content Delivery</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/client-vpn/">AWS Client VPN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/cloudfront/">Amazon CloudFront</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/direct-connect/">AWS Direct Connect</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/elastic-load-balancing/">Elastic Load Balancing (ELB)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/global-accelerator/">AWS Global Accelerator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/private-link/">AWS PrivateLink</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/route53/">Amazon Route 53</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/site-to-site-vpn/">AWS Site-to-Site VPN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/transit-gateway/">AWS Transit Gateway</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../networking-and-content-delivery/vpc/">Amazon VPC</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Security, Identity, and Compliance</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/artifact/">AWS Artifact</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/audit-manager/">AWS Audit Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/acm/">AWS Certificate Manager (ACM)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/cloudhsm/">AWS CloudHSM</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/cognito/">Amazon Cognito</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/detective/">Amazon Detective</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/directory-service/">AWS Directory Service</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/firewall-manager/">AWS Firewall Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/guardduty/">Amazon GuardDuty</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/iam-identity-center/">AWS IAM Identity Center (AWS Single Sign-On)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/iam/">AWS Identity and Access Management (IAM)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/inspector/">Amazon Inspector</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/kms/">AWS Key Management Service (AWS KMS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/macie/">Amazon Macie</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/network-firewall/">AWS Network Firewall</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/resource-access-manager/">AWS Resource Access Manager (AWS RAM)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/secrets-manager/">AWS Secrets Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/security-hub/">AWS Security Hub</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/shield/">AWS Shield</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../security-identity-and-compliance/waf/">AWS WAF</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Serverless</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../serverless/appsync/">AWS AppSync</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../serverless/fargate/">AWS Fargate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../serverless/lambda/">AWS Lambda</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Storage</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/backup/">AWS Backup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/ebs/">Amazon Elastic Block Store (Amazon EBS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/efs/">Amazon Elastic File System (Amazon EFS)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/fsx/">Amazon FSx (for all types)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/s3/">Amazon S3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/s3-glacier/">Amazon S3 Glacier</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../storage/storage-gateway/">AWS Storage Gateway</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">AWS Solution Architect Associate Notes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Containers</li>
+      <li class="breadcrumb-item active">Amazon Elastic Container Registry (Amazon ECR)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../eks-distro/" class="btn btn-neutral float-left" title="Amazon EKS Distro"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ecs/" class="btn btn-neutral float-right" title="Amazon Elastic Container Service (Amazon ECS)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../eks-distro/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ecs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
