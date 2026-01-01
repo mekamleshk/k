@@ -4,17 +4,17 @@ Welcome to the documentation for the AWS Solution Architect Associate certificat
 
 ## Analytics and ML
 
-- [Amazon Athena](analytics-and-ml/athena.md)
-- [AWS Data Exchange](analytics-and-ml/data-exchange.md)
-- [AWS Data Pipeline](analytics-and-ml/data-pipeline.md)
-- [Amazon EMR](analytics-and-ml/emr.md)
-- [AWS Glue](analytics-and-ml/glue.md)
-- [Amazon Kinesis](analytics-and-ml/kinesis.md)
-- [AWS Lake Formation](analytics-and-ml/lake-formation.md)
-- [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](analytics-and-ml/msk.md)
-- [Amazon OpenSearch Service](analytics-and-ml/opensearch.md)
-- [Amazon QuickSight](analytics-and-ml/quicksight.md)
-- [Amazon Redshift](analytics-and-ml/redshift.md)
+- [Amazon Athena](analytics/athena.md)
+- [AWS Data Exchange](analytics/data-exchange.md)
+- [AWS Data Pipeline](analytics/data-pipeline.md)
+- [Amazon EMR](analytics/emr.md)
+- [AWS Glue](analytics/glue.md)
+- [Amazon Kinesis](analytics/kinesis.md)
+- [AWS Lake Formation](analytics/lake-formation.md)
+- [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](analytics/msk.md)
+- [Amazon OpenSearch Service](analytics/opensearch.md)
+- [Amazon QuickSight](analytics/quicksight.md)
+- [Amazon Redshift](analytics/redshift.md)
 
 ## Application Integration
 
