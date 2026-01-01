@@ -3,115 +3,179 @@
 Welcome to the documentation for the AWS Solution Architect Associate certification. Below, you will find sections and links to various topics to help you prepare for the exam.
 
 ## Analytics and ML
-- [Athena](analytics-and-ml/athena.md)
-- [Comprehend](analytics-and-ml/comprehend.md)
-- [EMR](analytics-and-ml/emr.md)
-- [Forecast](analytics-and-ml/forecast.md)
-- [Glue](analytics-and-ml/glue.md)
-- [Kendra](analytics-and-ml/kendra.md)
-- [Kinesis](analytics-and-ml/kinesis.md)
-- [Lex](analytics-and-ml/lex.md)
-- [Polly](analytics-and-ml/polly.md)
-- [QuickSight](analytics-and-ml/quicksight.md)
-- [Rekognition](analytics-and-ml/rekognition.md)
-- [SageMaker](analytics-and-ml/sagemaker.md)
-- [Textract](analytics-and-ml/textract.md)
-- [Translate](analytics-and-ml/translate.md)
+
+- [Amazon Athena](analytics-and-ml/athena.md)
+- [AWS Data Exchange](analytics-and-ml/data-exchange.md)
+- [AWS Data Pipeline](analytics-and-ml/data-pipeline.md)
+- [Amazon EMR](analytics-and-ml/emr.md)
+- [AWS Glue](analytics-and-ml/glue.md)
+- [Amazon Kinesis](analytics-and-ml/kinesis.md)
+- [AWS Lake Formation](analytics-and-ml/lake-formation.md)
+- [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](analytics-and-ml/msk.md)
+- [Amazon OpenSearch Service](analytics-and-ml/opensearch.md)
+- [Amazon QuickSight](analytics-and-ml/quicksight.md)
+- [Amazon Redshift](analytics-and-ml/redshift.md)
 
 ## Application Integration
-- [AppSync](application-integration/appsync.md)
-- [EventBridge](application-integration/eventbridge.md)
-- [SNS](application-integration/sns.md)
-- [SQS](application-integration/sqs.md)
-- [Step Functions](application-integration/step-functions.md)
 
-## Backup & Recovery
-- [AWS Backup](backup-and-recovery/backup.md)
-- [DataSync](backup-and-recovery/datasync.md)
-- [Glacier](backup-and-recovery/glacier.md)
-- [Storage Gateway](backup-and-recovery/storage-gateway.md)
+- [Amazon AppFlow](application-integration/appflow.md)
+- [AWS AppSync](application-integration/appsync.md)
+- [Amazon EventBridge](application-integration/eventbridge.md)
+- [Amazon MQ](application-integration/mq.md)
+- [Amazon Simple Notification Service (Amazon SNS)](application-integration/sns.md)
+- [Amazon Simple Queue Service (Amazon SQS)](application-integration/sqs.md)
+- [AWS Step Functions](application-integration/step-functions.md)
 
-## Compute Services
-- [API Gateway](compute-services/api-gateway.md)
-- [AWS Batch](compute-services/batch.md)
-- [EC2](compute-services/ec2.md)
-- [ECS](compute-services/ecs.md)
-- [EKS](compute-services/eks.md)
-- [Elastic Beanstalk](compute-services/elastic-beanstalk.md)
-- [Fargate](compute-services/fargate.md)
-- [Lambda](compute-services/lambda.md)
+## AWS Cost Management
 
-## Cost Optimization
-- [EC2 Instances](cost-optimization/ec2-instances.md)
-- [Savings Plans](cost-optimization/savings-plan.md)
+- [AWS Budgets](cost-management/budgets.md)
+- [AWS Cost and Usage Report](cost-management/cost-usage-report.md)
+- [AWS Cost Explorer](cost-management/cost-explorer.md)
+- [Savings Plans](cost-management/savings-plans.md)
+
+## Compute
+
+- [AWS Batch](compute/batch.md)
+- [Amazon EC2](compute/ec2.md)
+- [Amazon EC2 Auto Scaling](compute/ec2-auto-scaling.md)
+- [AWS Elastic Beanstalk](compute/elastic-beanstalk.md)
+- [AWS Outposts](compute/outposts.md)
+- [AWS Serverless Application Repository](compute/serverless-application-repository.md)
+- [VMware Cloud on AWS](compute/vmware-cloud-on-aws.md)
+- [AWS Wavelength](compute/wavelength.md)
+
+## Containers
+
+- [Amazon ECS Anywhere](containers/ecs-anywhere.md)
+- [Amazon EKS Anywhere](containers/eks-anywhere.md)
+- [Amazon EKS Distro](containers/eks-distro.md)
+- [Amazon Elastic Container Registry (Amazon ECR)](containers/ecr.md)
+- [Amazon Elastic Container Service (Amazon ECS)](containers/ecs.md)
+- [Amazon Elastic Kubernetes Service (Amazon EKS)](containers/eks.md)
 
 ## Database
-- [Aurora](database/aurora.md)
-- [DocumentDB](database/documentdb.md)
-- [DynamoDB](database/dynamodb.md)
-- [ElastiCache](database/elasticache.md)
-- [Neptune](database/neptune.md)
-- [QLDB](database/qldb.md)
-- [RDS](database/rds.md)
-- [Redshift Spectrum](database/redshift-spectrum.md)
+
+- [Amazon Aurora](database/aurora.md)
+- [Amazon Aurora Serverless](database/aurora-serverless.md)
+- [Amazon DocumentDB (with MongoDB compatibility)](database/documentdb.md)
+- [Amazon DynamoDB](database/dynamodb.md)
+- [Amazon ElastiCache](database/elasticache.md)
+- [Amazon Keyspaces (for Apache Cassandra)](database/keyspaces.md)
+- [Amazon Neptune](database/neptune.md)
+- [Amazon Quantum Ledger Database (Amazon QLDB)](database/qldb.md)
+- [Amazon RDS](database/rds.md)
+- [Amazon Redshift](database/redshift.md)
 
 ## Developer Tools
-- [X-Ray](developer-tools/x-ray.md)
 
-## Disaster Recovery & Migrations
-- [Disaster Recovery](disaster-recovery-and-migrations/disaster-recovery.md)
+- [AWS X-Ray](developer-tools/x-ray.md)
 
-## Hybrid Cloud
-- [Outposts](hybrid-cloud/outposts.md)
+## Front-End Web and Mobile
 
-## Identity & Access
-- [Cognito](identity-and-access/cognito.md)
-- [IAM](identity-and-access/iam-identity-manager.md)
-- [Identity Center](identity-and-access/identity-center.md)
+- [AWS Amplify](front-end-web-and-mobile/amplify.md)
+- [Amazon API Gateway](front-end-web-and-mobile/api-gateway.md)
+- [AWS Device Farm](front-end-web-and-mobile/device-farm.md)
+- [Amazon Pinpoint](front-end-web-and-mobile/pinpoint.md)
 
-## Management & Governance
-- [Artifact](management-and-governance/artifact.md)
-- [Audit Manager](management-and-governance/audit-manager.md)
-- [CloudFormation](management-and-governance/cloudformation.md)
-- [CloudTrail](management-and-governance/cloudtrail.md)
-- [CloudWatch](management-and-governance/cloudwatch.md)
-- [Control Tower](management-and-governance/control-tower.md)
-- [Directory Service](management-and-governance/directory-service.md)
-- [Organizations](management-and-governance/organizations.md)
+## Machine Learning
 
-## Migration
-- [DMS](migration/dms.md)
-- [Snowball](migration/snowball.md)
-- [Transfer Family](migration/transfer-family.md)
+- [Amazon Comprehend](machine-learning/comprehend.md)
+- [Amazon Forecast](machine-learning/forecast.md)
+- [Amazon Fraud Detector](machine-learning/fraud-detector.md)
+- [Amazon Kendra](machine-learning/kendra.md)
+- [Amazon Lex](machine-learning/lex.md)
+- [Amazon Polly](machine-learning/polly.md)
+- [Amazon Rekognition](machine-learning/rekognition.md)
+- [Amazon SageMaker](machine-learning/sagemaker.md)
+- [Amazon Textract](machine-learning/textract.md)
+- [Amazon Transcribe](machine-learning/transcribe.md)
+- [Amazon Translate](machine-learning/translate.md)
 
-## Networking & Connectivity
-- [CloudFront](networking-and-connectivity/cloudfront.md)
-- [Direct Connect](networking-and-connectivity/direct-connect.md)
-- [Elastic Load Balancer](networking-and-connectivity/elastic-load-balancer.md)
-- [Global Accelerator](networking-and-connectivity/global-accelerator.md)
-- [PrivateLink](networking-and-connectivity/private-link.md)
-- [Route 53](networking-and-connectivity/route53.md)
-- [Transit Gateway](networking-and-connectivity/transit-gateway.md)
-- [VPC Peering](networking-and-connectivity/vpc-peering.md)
-- [VPC](networking-and-connectivity/vpc.md)
-- [VPN](networking-and-connectivity/vpn.md)
+## Management and Governance
 
-## Security
-- [ACM](security/acm.md)
-- [Firewall Manager](security/firewall-manager.md)
-- [GuardDuty](security/guardduty.md)
-- [Inspector](security/inspector.md)
-- [KMS](security/kms.md)
-- [Macie](security/macie.md)
-- [Resource Access Manager](security/resource-access-manager.md)
-- [Secrets Manager](security/secrets-manager.md)
-- [Security Hub](security/security-hub.md)
-- [Shield](security/shield.md)
-- [WAF](security/waf.md)
+- [AWS Auto Scaling](management-and-governance/auto-scaling.md)
+- [AWS CloudFormation](management-and-governance/cloudformation.md)
+- [AWS CloudTrail](management-and-governance/cloudtrail.md)
+- [Amazon CloudWatch](management-and-governance/cloudwatch.md)
+- [AWS Command Line Interface (AWS CLI)](management-and-governance/cli.md)
+- [AWS Compute Optimizer](management-and-governance/compute-optimizer.md)
+- [AWS Config](management-and-governance/config.md)
+- [AWS Control Tower](management-and-governance/control-tower.md)
+- [AWS Health Dashboard](management-and-governance/health-dashboard.md)
+- [AWS License Manager](management-and-governance/license-manager.md)
+- [Amazon Managed Grafana](management-and-governance/managed-grafana.md)
+- [Amazon Managed Service for Prometheus](management-and-governance/managed-prometheus.md)
+- [AWS Management Console](management-and-governance/management-console.md)
+- [AWS Organizations](management-and-governance/organizations.md)
+- [AWS Proton](management-and-governance/proton.md)
+- [AWS Service Catalog](management-and-governance/service-catalog.md)
+- [AWS Systems Manager](management-and-governance/systems-manager.md)
+- [AWS Trusted Advisor](management-and-governance/trusted-advisor.md)
+- [AWS Well-Architected Tool](management-and-governance/well-architected-tool.md)
+
+## Media Services
+
+- [Amazon Elastic Transcoder](media-services/elastic-transcoder.md)
+- [Amazon Kinesis Video Streams](media-services/kinesis-video-streams.md)
+
+## Migration and Transfer
+
+- [AWS Application Discovery Service](migration-and-transfer/application-discovery-service.md)
+- [AWS Application Migration Service](migration-and-transfer/application-migration-service.md)
+- [AWS Database Migration Service (AWS DMS)](migration-and-transfer/dms.md)
+- [AWS DataSync](migration-and-transfer/datasync.md)
+- [AWS Migration Hub](migration-and-transfer/migration-hub.md)
+- [AWS Snow Family](migration-and-transfer/snow-family.md)
+- [AWS Transfer Family](migration-and-transfer/transfer-family.md)
+
+## Networking and Content Delivery
+
+- [AWS Client VPN](networking-and-content-delivery/client-vpn.md)
+- [Amazon CloudFront](networking-and-content-delivery/cloudfront.md)
+- [AWS Direct Connect](networking-and-content-delivery/direct-connect.md)
+- [Elastic Load Balancing (ELB)](networking-and-content-delivery/elastic-load-balancing.md)
+- [AWS Global Accelerator](networking-and-content-delivery/global-accelerator.md)
+- [AWS PrivateLink](networking-and-content-delivery/private-link.md)
+- [Amazon Route 53](networking-and-content-delivery/route53.md)
+- [AWS Site-to-Site VPN](networking-and-content-delivery/site-to-site-vpn.md)
+- [AWS Transit Gateway](networking-and-content-delivery/transit-gateway.md)
+- [Amazon VPC](networking-and-content-delivery/vpc.md)
+
+## Security, Identity, and Compliance
+
+- [AWS Artifact](security-identity-and-compliance/artifact.md)
+- [AWS Audit Manager](security-identity-and-compliance/audit-manager.md)
+- [AWS Certificate Manager (ACM)](security-identity-and-compliance/acm.md)
+- [AWS CloudHSM](security-identity-and-compliance/cloudhsm.md)
+- [Amazon Cognito](security-identity-and-compliance/cognito.md)
+- [Amazon Detective](security-identity-and-compliance/detective.md)
+- [AWS Directory Service](security-identity-and-compliance/directory-service.md)
+- [AWS Firewall Manager](security-identity-and-compliance/firewall-manager.md)
+- [Amazon GuardDuty](security-identity-and-compliance/guardduty.md)
+- [AWS IAM Identity Center (AWS Single Sign-On)](security-identity-and-compliance/iam-identity-center.md)
+- [AWS Identity and Access Management (IAM)](security-identity-and-compliance/iam.md)
+- [Amazon Inspector](security-identity-and-compliance/inspector.md)
+- [AWS Key Management Service (AWS KMS)](security-identity-and-compliance/kms.md)
+- [Amazon Macie](security-identity-and-compliance/macie.md)
+- [AWS Network Firewall](security-identity-and-compliance/network-firewall.md)
+- [AWS Resource Access Manager (AWS RAM)](security-identity-and-compliance/resource-access-manager.md)
+- [AWS Secrets Manager](security-identity-and-compliance/secrets-manager.md)
+- [AWS Security Hub](security-identity-and-compliance/security-hub.md)
+- [AWS Shield](security-identity-and-compliance/shield.md)
+- [AWS WAF](security-identity-and-compliance/waf.md)
+
+## Serverless
+
+- [AWS AppSync](serverless/appsync.md)
+- [AWS Fargate](serverless/fargate.md)
+- [AWS Lambda](serverless/lambda.md)
 
 ## Storage
-- [Elastic Block Store (EBS)](storage/ebs.md)
-- [Elastic File System (EFS)](storage/efs.md)
-- [FSx](storage/fsx.md)
-- [S3 Intelligent Tiering](storage/s3-intelligent-tiering.md)
+
+- [AWS Backup](storage/backup.md)
+- [Amazon Elastic Block Store (Amazon EBS)](storage/ebs.md)
+- [Amazon Elastic File System (Amazon EFS)](storage/efs.md)
+- [Amazon FSx (for all types)](storage/fsx.md)
 - [Amazon S3](storage/s3.md)
+- [Amazon S3 Glacier](storage/s3-glacier.md)
+- [AWS Storage Gateway](storage/storage-gateway.md)
