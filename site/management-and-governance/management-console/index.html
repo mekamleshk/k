@@ -189,15 +189,11 @@
               </ul>
               <p class="caption"><span class="caption-text">Management and Governance</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../auto-scaling/">AWS Auto Scaling</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../cloudformation/">AWS CloudFormation</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../cloudtrail/">AWS CloudTrail</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../cloudwatch/">Amazon CloudWatch</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cli/">AWS Command Line Interface (AWS CLI)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../compute-optimizer/">AWS Compute Optimizer</a>
                   </li>
@@ -214,6 +210,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../managed-prometheus/">Amazon Managed Service for Prometheus</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">AWS Management Console</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../organizations/">AWS Organizations</a>
                   </li>
@@ -366,7 +364,87 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h3 id="1-global-vs-regional-views-classic-exam-trap"><strong>1. Global vs. Regional Views (Classic Exam Trap)</strong></h3>
+<p>The exam frequently tests if you notice which services are "Global" versus "Regional" in the console. If you are in the <code>us-east-1</code> region and switch to a Global service, the region dropdown becomes grayed out or says "Global."</p>
+<ul>
+<li><strong>Regional Services (Most Common):</strong> EC2, Lambda, RDS, DynamoDB, VPC.</li>
+<li>
+<p><em>Exam Consequence:</em> If you launch an EC2 instance in <code>us-east-1</code> and then switch your console to <code>us-west-2</code>, that instance will disappear from your view. It is still there; you just aren't looking in the right region.</p>
+</li>
+<li>
+<p><strong>Global Services (Memorize These):</strong></p>
+</li>
+<li><strong>IAM (Identity &amp; Access Management):</strong> Users/Roles exist everywhere.</li>
+<li><strong>Amazon S3:</strong> The "Bucket Namespace" is global (names must be unique worldwide), but the <em>data</em> sits in a specific region. The Console view, however, lists all buckets globally.</li>
+<li><strong>Amazon CloudFront:</strong> Content delivery happens globally.</li>
+<li><strong>Route 53:</strong> DNS is global.</li>
+</ul>
+<h3 id="2-resource-groups-tag-editor-the-search-tool"><strong>2. Resource Groups &amp; Tag Editor (The "Search" Tool)</strong></h3>
+<p>This is a specific tool <em>inside</em> the Console (found in the top navigation bar) that often appears in "Operational Excellence" questions.</p>
+<ul>
+<li><strong>The Problem:</strong> You have 50 EC2 instances and 20 RDS databases spread across 3 different regions (US, Europe, Asia). You need to find all resources tagged <code>Project: Beta</code>.</li>
+<li><strong>The Wrong Answer:</strong> Go to the EC2 console in US, search. Switch to Europe, search. Go to RDS console, search...</li>
+<li><strong>The Right Answer (Exam Keyword):</strong> Use <strong>AWS Resource Groups &amp; Tag Editor</strong>.</li>
+<li>It allows you to search for resources by <strong>Tag</strong> across <strong>multiple regions</strong> and <strong>multiple services</strong> at once.</li>
+</ul>
+<h3 id="3-controlling-console-access-security-domain"><strong>3. Controlling Console Access (Security Domain)</strong></h3>
+<p>The exam tests how you secure the "front door."</p>
+<ul>
+<li><strong>Root User vs. IAM User:</strong></li>
+<li><strong>Root User:</strong> The email you used to sign up. It has unlimited power. <em>Exam Rule:</em> <strong>Never</strong> use this for daily tasks. Only use it to change your support plan or close the account.</li>
+<li>
+<p><strong>IAM User:</strong> Created by you. You give them a specific link to sign in: <code>https://[your-account-id].signin.aws.amazon.com/console</code>.</p>
+</li>
+<li>
+<p><strong>MFA (Multi-Factor Authentication):</strong></p>
+</li>
+<li>The exam will ask how to enforce MFA for console users.</li>
+<li>
+<p><strong>Answer:</strong> Create an IAM Policy that denies all actions (Effect: Deny) <em>unless</em> <code>aws:MultiFactorAuthPresent</code> is true.</p>
+</li>
+<li>
+<p><strong>AWS CloudShell:</strong></p>
+</li>
+<li>This is a browser-based CLI <em>embedded</em> inside the Management Console.</li>
+<li><em>Exam Use Case:</em> You need to run a quick AWS CLI script to restart a server, but you are on a borrowed laptop without terminal credentials. <strong>Solution:</strong> Log into the Console and open CloudShell. It inherits your Console credentials automatically.</li>
+</ul>
+<h3 id="4-troubleshooting-dashboards"><strong>4. Troubleshooting Dashboards</strong></h3>
+<p>When "things go wrong," the exam asks which Console dashboard to check.</p>
+<table>
+<thead>
+<tr>
+<th>Dashboard Name</th>
+<th>What it shows</th>
+<th>Exam Scenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AWS Service Health Dashboard</strong></td>
+<td>Status of AWS services <strong>globally</strong> (e.g., "Is S3 down for everyone in the world?")</td>
+<td>"You cannot access S3. You want to check if AWS is having a massive outage."</td>
+</tr>
+<tr>
+<td><strong>AWS Personal Health Dashboard</strong></td>
+<td>Status of AWS services <strong>affecting YOU</strong> specifically.</td>
+<td>"You received an email that one of your EC2 instances is on degraded hardware and needs a restart."</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-cost-billing-console"><strong>5. Cost &amp; Billing Console</strong></h3>
+<p>While Cost Explorer is a tool, the <strong>Billing Console</strong> is where you configure <em>governance</em>.</p>
+<ul>
+<li><strong>Cost Allocation Tags:</strong></li>
+<li>You can tag an EC2 instance as <code>Department: HR</code> in the EC2 Console, but that tag <strong>will not appear on the bill</strong> until you go to the <strong>Billing Console</strong> and "Activate" that tag.</li>
+<li><em>Exam Scenario:</em> "You tagged all resources, but the cost report still shows 'No Tag'. Why?" -&gt; <strong>Answer:</strong> You forgot to activate the tags in the Billing Console.</li>
+</ul>
+<h3 id="summary-checklist-for-exam-day"><strong>Summary Checklist for Exam Day</strong></h3>
+<ol>
+<li><strong>S3</strong> and <strong>IAM</strong> are Global views in the console.</li>
+<li><strong>Tag Editor</strong> finds resources across regions.</li>
+<li><strong>Personal Health Dashboard</strong> tells you if <em>your</em> specific resources are impacted by an outage.</li>
+<li><strong>CloudShell</strong> gives you a CLI inside the browser.</li>
+</ol>
               
             </div>
           </div><footer>

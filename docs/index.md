@@ -91,11 +91,9 @@ Welcome to the documentation for the AWS Solution Architect Associate certificat
 
 ## Management and Governance
 
-- [AWS Auto Scaling](management-and-governance/auto-scaling.md)
 - [AWS CloudFormation](management-and-governance/cloudformation.md)
 - [AWS CloudTrail](management-and-governance/cloudtrail.md)
 - [Amazon CloudWatch](management-and-governance/cloudwatch.md)
-- [AWS Command Line Interface (AWS CLI)](management-and-governance/cli.md)
 - [AWS Compute Optimizer](management-and-governance/compute-optimizer.md)
 - [AWS Config](management-and-governance/config.md)
 - [AWS Control Tower](management-and-governance/control-tower.md)
