@@ -69,8 +69,6 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../application-integration/appflow/">Amazon AppFlow</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../../application-integration/appsync.md">AWS AppSync</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../application-integration/eventbridge/">Amazon EventBridge</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../application-integration/mq/">Amazon MQ</a>
@@ -85,6 +83,8 @@
               <p class="caption"><span class="caption-text">AWS Cost Management</span></p>
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">AWS Budgets</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../cost-usage-report/">AWS Cost and Usage Report</a>
                   </li>
@@ -146,8 +146,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../database/qldb/">Amazon Quantum Ledger Database (Amazon QLDB)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../database/rds/">Amazon RDS</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../database/redshift/">Amazon Redshift</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Developer Tools</span></p>
@@ -370,7 +368,119 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h3 id="1-core-concept-proactive-cost-control"><strong>1. Core Concept: "Proactive" Cost Control</strong></h3>
+<p>In the exam, if a question asks how to <strong>"prevent overspending"</strong> or <strong>"get notified before costs exceed a limit,"</strong> the answer is almost always <strong>AWS Budgets</strong>.</p>
+<ul>
+<li><strong>Cost Explorer</strong> = Looking backward (Analysis/Forensics).</li>
+<li><strong>AWS Budgets</strong> = Looking forward/current (Monitoring/Alerting).</li>
+</ul>
+<hr />
+<h3 id="2-the-4-types-of-budgets-exam-scenarios"><strong>2. The 4 Types of Budgets (Exam Scenarios)</strong></h3>
+<p>You can set up four specific types of budgets. You must know which one applies to which scenario.</p>
+<table>
+<thead>
+<tr>
+<th>Budget Type</th>
+<th>What it tracks</th>
+<th>Exam Scenario Keyword</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cost Budget</strong></td>
+<td>Money ($$$)</td>
+<td>"Notify me if my monthly bill goes over $1,000."</td>
+</tr>
+<tr>
+<td><strong>Usage Budget</strong></td>
+<td>Resources (GB, Hours)</td>
+<td>"Notify me if my S3 buckets exceed 100 GB of storage" or "If we use more than 1,000 EC2 hours."</td>
+</tr>
+<tr>
+<td><strong>Reservation Budget</strong></td>
+<td>Utilization / Coverage</td>
+<td>"Alert if our Reserved Instance (RI) utilization drops below 80%." (Means you are wasting the RIs you paid for).</td>
+</tr>
+<tr>
+<td><strong>Savings Plans Budget</strong></td>
+<td>Utilization / Coverage</td>
+<td>"Alert if our Savings Plan coverage drops below 90%."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="3-alerting-logic-actual-vs-forecasted"><strong>3. Alerting Logic: Actual vs. Forecasted</strong></h3>
+<p>This is a common "trick" in exam questions. You can set alerts on two different timelines:</p>
+<ol>
+<li><strong>Actual Costs:</strong> "Alert me when I have <strong>already spent</strong> 80% of my budget."</li>
+<li>
+<p><em>Risk:</em> You might have already blown the budget by the time you react.</p>
+</li>
+<li>
+<p><strong>Forecasted Costs:</strong> "Alert me when AWS <strong>predicts</strong> I will exceed my budget based on current usage trends."</p>
+</li>
+<li><em>Exam Value:</em> This is the <strong>most proactive</strong> setting. It allows you to stop a runaway process (like a recursive Lambda loop) <em>before</em> the bill gets too high.</li>
+</ol>
+<hr />
+<h3 id="4-aws-budget-actions-high-probability-topic"><strong>4. AWS Budget Actions (High Probability Topic)</strong></h3>
+<p>This is the most advanced and frequently tested feature. AWS Budgets can do more than just send an email; it can <strong>take action</strong> to stop the spending.</p>
+<p><strong>How it works:</strong>
+When a threshold is breached (e.g., "Cost &gt; $500"), AWS Budgets can automatically:</p>
+<ol>
+<li><strong>Stop an EC2 Instance:</strong> (Specific Region/ID).</li>
+<li><strong>Stop an RDS Database.</strong></li>
+<li><strong>Attach an IAM Policy:</strong> It can attach a "Deny All" policy to a user or role, effectively locking them out of creating new resources.</li>
+<li><strong>Apply a Service Control Policy (SCP):</strong> If using AWS Organizations, it can block resource creation for an entire sub-account.</li>
+</ol>
+<p><strong>The Workflow:</strong>
+Budget Breach  SNS Topic  Lambda Function (or System Manager)  <strong>Action Executed</strong></p>
+<hr />
+<h3 id="5-notifications-reporting"><strong>5. Notifications &amp; Reporting</strong></h3>
+<ul>
+<li><strong>SNS (Simple Notification Service):</strong> Budgets send alerts to an SNS topic. From there, you can fan out to:</li>
+<li>Email (Managers).</li>
+<li>SMS (Sysadmins).</li>
+<li>AWS Chatbot (Slack/Chime).</li>
+<li>
+<p>Lambda (Automated remediation).</p>
+</li>
+<li>
+<p><strong>AWS Budgets Reports:</strong> You can configure a report to be emailed to you (Daily, Weekly, Monthly) summarizing your budget status.</p>
+</li>
+<li><em>Exam Tip:</em> This costs $0.01 per report! (Not free, unlike the first 2 budgets).</li>
+</ul>
+<hr />
+<h3 id="6-saa-c03-cheat-sheet-keywords-to-watch-for"><strong>6. SAA-C03 Cheat Sheet: Keywords to Watch For</strong></h3>
+<table>
+<thead>
+<tr>
+<th>If the Exam Question Asks...</th>
+<th>The Answer is Likely...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Predict future costs" / "Forecast spending"</td>
+<td><strong>AWS Cost Explorer</strong> (Analysis) or <strong>AWS Budgets</strong> (Alerting on forecast).</td>
+</tr>
+<tr>
+<td>"Receive an alert <em>before</em> costs are incurred"</td>
+<td><strong>AWS Budgets (Forecasted alerts)</strong>.</td>
+</tr>
+<tr>
+<td>"Automatically stop resources when a limit is reached"</td>
+<td><strong>AWS Budget Actions</strong>.</td>
+</tr>
+<tr>
+<td>"Detailed analysis of past spending trends"</td>
+<td><strong>AWS Cost Explorer</strong>.</td>
+</tr>
+<tr>
+<td>"Raw billing data for custom analysis"</td>
+<td><strong>Cost and Usage Report (CUR)</strong>.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>

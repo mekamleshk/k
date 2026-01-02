@@ -19,7 +19,6 @@ Welcome to the documentation for the AWS Solution Architect Associate certificat
 ## Application Integration
 
 - [Amazon AppFlow](application-integration/appflow.md)
-- [AWS AppSync](application-integration/appsync.md)
 - [Amazon EventBridge](application-integration/eventbridge.md)
 - [Amazon MQ](application-integration/mq.md)
 - [Amazon Simple Notification Service (Amazon SNS)](application-integration/sns.md)
@@ -64,7 +63,6 @@ Welcome to the documentation for the AWS Solution Architect Associate certificat
 - [Amazon Neptune](database/neptune.md)
 - [Amazon Quantum Ledger Database (Amazon QLDB)](database/qldb.md)
 - [Amazon RDS](database/rds.md)
-- [Amazon Redshift](database/redshift.md)
 
 ## Developer Tools
 

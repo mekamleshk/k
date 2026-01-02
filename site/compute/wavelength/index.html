@@ -69,8 +69,6 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../application-integration/appflow/">Amazon AppFlow</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../../application-integration/appsync.md">AWS AppSync</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../application-integration/eventbridge/">Amazon EventBridge</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../application-integration/mq/">Amazon MQ</a>
@@ -110,6 +108,12 @@
                   <li class="toctree-l1"><a class="reference internal" href="../vmware-cloud-on-aws/">VMware Cloud on AWS</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">AWS Wavelength</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#wavelength-zones">Wavelength Zones</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#carrier-gateway">Carrier Gateway</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Containers</span></p>
@@ -146,8 +150,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../database/qldb/">Amazon Quantum Ledger Database (Amazon QLDB)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../database/rds/">Amazon RDS</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../database/redshift/">Amazon Redshift</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Developer Tools</span></p>
@@ -370,7 +372,75 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <p>AWS Wavelength embeds AWS compute and storage services directly inside <strong>Telecommunications Providers’ (Telco)</strong> data centers—at the edge of the <strong>5G network</strong>.</p>
+<ul>
+<li><strong>The Problem it Solves:</strong> Normally, mobile traffic has to travel from the device  Cell Tower  Telco Core Network  Internet  AWS Region. This introduces latency (lag).</li>
+<li><strong>The Wavelength Solution:</strong> Traffic goes from Device  Cell Tower  <strong>Wavelength Zone</strong> (AWS servers inside the Telco facility). It skips the public internet hop entirely for the lowest possible latency to mobile devices.</li>
+</ul>
+<hr />
+<h3 id="2-key-architecture-concepts-for-the-exam"><strong>2. Key Architecture Concepts for the Exam</strong></h3>
+<h4 id="wavelength-zones"><strong>Wavelength Zones</strong></h4>
+<ul>
+<li>Similar to an Availability Zone (AZ) but located inside a carrier's 5G network (e.g., Verizon in the US, Vodafone in Europe).</li>
+<li><strong>VPC Extension:</strong> You extend your existing VPC to a Wavelength Zone. You create a subnet in the Wavelength Zone, just like you would in a regular AZ.</li>
+</ul>
+<h4 id="carrier-gateway"><strong>Carrier Gateway</strong></h4>
+<ul>
+<li><strong>Critical Exam Keyword:</strong> Just as an <em>Internet Gateway</em> connects a VPC to the Internet, a <strong>Carrier Gateway</strong> allows resources in the Wavelength subnet to communicate with the carrier's mobile network and the internet.</li>
+<li><strong>Function:</strong> It performs NAT (Network Address Translation) to assign carrier IP addresses to your EC2 instances so mobile devices can reach them directly.</li>
+</ul>
+<hr />
+<h3 id="3-common-exam-scenarios-use-cases"><strong>3. Common Exam Scenarios (Use Cases)</strong></h3>
+<p>If a question describes one of these scenarios, look for AWS Wavelength in the answers:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Keywords to Watch For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Smart Cities / IoT</strong></td>
+<td>"Connected vehicles," "Traffic analysis," "5G IoT sensors."</td>
+</tr>
+<tr>
+<td><strong>Real-time Gaming</strong></td>
+<td>"Game streaming to mobile devices," "Minimize jitter for mobile players."</td>
+</tr>
+<tr>
+<td><strong>AR / VR</strong></td>
+<td>"Augmented Reality rendering," "Virtual Reality for field workers," "Low latency rendering."</td>
+</tr>
+<tr>
+<td><strong>Machine Learning Inference</strong></td>
+<td>"Real-time inference at the edge," "Medical image analysis on mobile tablets."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4-edge-service-comparison-the-exam-trap"><strong>4. "Edge" Service Comparison: The Exam Trap</strong></h3>
+<p>The exam often asks you to choose between <strong>Outposts</strong>, <strong>Local Zones</strong>, and <strong>Wavelength</strong>. Use this cheat sheet to distinguish them:</p>
+<ul>
+<li><strong>Choose AWS Wavelength if:</strong></li>
+<li>The users are on <strong>Mobile / 5G devices</strong>.</li>
+<li>You need ultra-low latency specifically for <strong>mobile networks</strong>.</li>
+<li>
+<p>You <strong>do not</strong> own the data center (it's the Telco's facility).</p>
+</li>
+<li>
+<p><strong>Choose AWS Local Zones if:</strong></p>
+</li>
+<li>The users are generic internet users (corporate offices, home gamers, content creators) in a specific city (e.g., Los Angeles, Houston).</li>
+<li>
+<p>You need single-digit millisecond latency to a <strong>specific geographic metro area</strong>, regardless of whether they are on 5G, Wi-Fi, or wired fiber.</p>
+</li>
+<li>
+<p><strong>Choose AWS Outposts if:</strong></p>
+</li>
+<li>The workload must run <strong>on-premises</strong> (in your own physical building/data center).</li>
+<li>Keywords: "Data residency requirements," "Run in client's own facility," "Hybrid cloud with local processing."</li>
+</ul>
               
             </div>
           </div><footer>
