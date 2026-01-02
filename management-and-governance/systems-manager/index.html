@@ -189,7 +189,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Management and Governance</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../auto-scaling/">AWS Auto Scaling</a>
+                  <li class="toctree-l1"><a class="" href="../auto-scaling.md">AWS Auto Scaling</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../cloudformation/">AWS CloudFormation</a>
                   </li>
@@ -197,7 +197,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../cloudwatch/">Amazon CloudWatch</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cli/">AWS Command Line Interface (AWS CLI)</a>
+                  <li class="toctree-l1"><a class="" href="../cli.md">AWS Command Line Interface (AWS CLI)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../compute-optimizer/">AWS Compute Optimizer</a>
                   </li>
@@ -222,6 +222,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../service-catalog/">AWS Service Catalog</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">AWS Systems Manager</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../trusted-advisor/">AWS Trusted Advisor</a>
                   </li>
@@ -366,7 +368,122 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h3 id="1-the-golden-rule-of-ssm-prerequisites"><strong>1. The Golden Rule of SSM (Prerequisites)</strong></h3>
+<p>Before SSM can work on an EC2 instance, two things <strong>must</strong> exist. If an exam scenario says "SSM is not working," check these first:</p>
+<ol>
+<li><strong>SSM Agent:</strong> Must be installed and running on the EC2 instance (it is pre-installed on Amazon Linux 2 and Amazon Linux 2023 AMIs).</li>
+<li><strong>IAM Role:</strong> The EC2 instance must have an IAM role attached with the correct permissions policy (usually <code>AmazonSSMManagedInstanceCore</code>).</li>
+</ol>
+<hr />
+<h3 id="2-top-3-exam-star-features"><strong>2. Top 3 "Exam Star" Features</strong></h3>
+<p>These three features appear most often in SAA-C03 questions.</p>
+<h4 id="a-ssm-session-manager"><strong>A. SSM Session Manager</strong></h4>
+<ul>
+<li><strong>What it is:</strong> Allows you to SSH (Linux) or RDP (Windows) into instances directly from the AWS Console or CLI.</li>
+<li><strong>The "Killer" Exam Scenario:</strong> "A company requires secure access to EC2 instances <strong>without opening inbound ports</strong> (like port 22 or 3389) and <strong>without managing SSH keys</strong>."</li>
+<li><strong>Why it’s the answer:</strong></li>
+<li>Traffic flows over HTTPS (TLS 1.2) via the SSM Agent.</li>
+<li>No need for a <strong>Bastion Host</strong> (Jump Box).</li>
+<li>Access is controlled via <strong>IAM Policies</strong>, not network rules.</li>
+<li>Every command typed is logged to <strong>S3</strong> or <strong>CloudWatch Logs</strong> for auditing (Compliance).</li>
+</ul>
+<h4 id="b-ssm-parameter-store"><strong>B. SSM Parameter Store</strong></h4>
+<ul>
+<li><strong>What it is:</strong> Storage for configuration data (database strings, license codes) and secrets (passwords).</li>
+<li><strong>Exam Scenario:</strong> "You need a central location to store configuration variables for a Lambda function and EC2 fleet. The solution must be <strong>low cost</strong>."</li>
+<li><strong>Key Concepts:</strong></li>
+<li><strong>SecureString:</strong> Encrypts sensitive data using a KMS key.</li>
+<li><strong>Hierarchical Storage:</strong> Organize parameters like <code>/dev/db/password</code> or <code>/prod/app/limit</code>.</li>
+<li><strong>Standard vs. Advanced:</strong></li>
+<li><em>Standard:</em> Free (up to 10k params), 4KB size limit.</li>
+<li>
+<p><em>Advanced:</em> Costs money, 8KB size limit, supports "Parameter Policies" (e.g., password expiration).</p>
+</li>
+<li>
+<p><strong>VS Secrets Manager (Crucial Distinction):</strong></p>
+</li>
+<li>Use <strong>Parameter Store</strong> for configuration and simple secrets (Standard is free!).</li>
+<li>Use <strong>Secrets Manager</strong> if you need <strong>automatic rotation</strong> of secrets (e.g., automatically changing an RDS database password every 30 days). Parameter Store cannot do this natively without custom Lambda scripts.</li>
+</ul>
+<h4 id="c-ssm-patch-manager"><strong>C. SSM Patch Manager</strong></h4>
+<ul>
+<li><strong>What it is:</strong> Automates the process of patching managed instances with security updates.</li>
+<li><strong>Exam Scenario:</strong> "You need to ensure a fleet of 50 Linux servers is patched with the latest critical security updates every Saturday at 2 AM."</li>
+<li><strong>Key Concepts:</strong></li>
+<li><strong>Patch Baseline:</strong> Defines <em>which</em> patches are approved (e.g., "Critical updates released &gt; 7 days ago").</li>
+<li><strong>Maintenance Windows:</strong> Defines <em>when</em> the patching occurs to avoid disrupting production traffic.</li>
+</ul>
+<hr />
+<h3 id="3-other-key-ssm-capabilities"><strong>3. Other Key SSM Capabilities</strong></h3>
+<h4 id="d-ssm-run-command"><strong>D. SSM Run Command</strong></h4>
+<ul>
+<li><strong>Concept:</strong> Execute a script/command on one or hundreds of instances simultaneously.</li>
+<li><strong>Exam Scenario:</strong> "You need to update a configuration file on 1,000 EC2 instances immediately."</li>
+<li><strong>Benefit:</strong> No need to SSH into each machine individually. Results are reported centrally.</li>
+</ul>
+<h4 id="e-ssm-automation"><strong>E. SSM Automation</strong></h4>
+<ul>
+<li><strong>Concept:</strong> Automates complex maintenance tasks using "Runbooks."</li>
+<li><strong>Exam Scenario:</strong> "You need to create a hardened AMI (Amazon Machine Image) every month that includes the latest OS patches."</li>
+<li><strong>Mechanism:</strong> SSM Automation can launch an instance -&gt; patch it -&gt; create an image -&gt; terminate the instance.</li>
+</ul>
+<h4 id="f-ssm-inventory"><strong>F. SSM Inventory</strong></h4>
+<ul>
+<li><strong>Concept:</strong> Collects metadata from your instances.</li>
+<li><strong>Exam Scenario:</strong> "You need to generate a report of all software installed on your EC2 fleet to check for unlicensed software."</li>
+</ul>
+<hr />
+<h3 id="4-cheat-sheet-comparison-for-exam"><strong>4. Cheat Sheet: Comparison for Exam</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Primary Exam Use Case</th>
+<th>"Trigger" Keywords</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Session Manager</strong></td>
+<td>Secure remote access</td>
+<td>No port 22/3389, No Bastion, Audit logs, IAM auth.</td>
+</tr>
+<tr>
+<td><strong>Parameter Store</strong></td>
+<td>Config/Secret storage</td>
+<td>Hierarchical, Free (Standard), Config data, KMS encryption.</td>
+</tr>
+<tr>
+<td><strong>Secrets Manager</strong></td>
+<td>Database password storage</td>
+<td><strong>Automatic Rotation</strong>, RDS integration, Cross-account access.</td>
+</tr>
+<tr>
+<td><strong>Patch Manager</strong></td>
+<td>OS Updates</td>
+<td>Compliance, Maintenance Window, Patch Baseline, CVE fixes.</td>
+</tr>
+<tr>
+<td><strong>Run Command</strong></td>
+<td>Bulk actions</td>
+<td>"Across fleet of instances," "No SSH needed," "Execute script."</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-a-typical-exam-question-walkthrough"><strong>5. A Typical Exam Question Walkthrough</strong></h3>
+<p><strong>Question:</strong> A company has an application running on private EC2 instances. A Solutions Architect needs to securely access these instances for troubleshooting. The solution must minimize operational overhead and avoid opening inbound ports to the internet. Which solution should they choose?</p>
+<p>A. Configure a Bastion Host in a public subnet and restrict Security Group access to the admin's IP.
+B. Use AWS Systems Manager Session Manager to access the instances.
+C. Use EC2 Instance Connect with a public IP address.
+D. Set up a Site-to-Site VPN to the VPC.</p>
+<p><strong>Analysis:</strong></p>
+<ul>
+<li><em>Option A:</em> Requires managing an extra EC2 (overhead) and opening ports.</li>
+<li><em>Option B:</em> <strong>Correct.</strong> No ports needed, no extra infrastructure (low overhead), highly secure.</li>
+<li><em>Option C:</em> Requires a public IP (security risk for private instances).</li>
+<li><em>Option D:</em> Valid connectivity, but high overhead (setup time/cost) just for troubleshooting access.</li>
+</ul>
+<p><strong>Answer:</strong> <strong>B</strong></p>
               
             </div>
           </div><footer>

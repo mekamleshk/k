@@ -189,7 +189,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Management and Governance</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../auto-scaling/">AWS Auto Scaling</a>
+                  <li class="toctree-l1"><a class="" href="../auto-scaling.md">AWS Auto Scaling</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../cloudformation/">AWS CloudFormation</a>
                   </li>
@@ -197,7 +197,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../cloudwatch/">Amazon CloudWatch</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../cli/">AWS Command Line Interface (AWS CLI)</a>
+                  <li class="toctree-l1"><a class="" href="../cli.md">AWS Command Line Interface (AWS CLI)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../compute-optimizer/">AWS Compute Optimizer</a>
                   </li>
@@ -220,6 +220,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../proton/">AWS Proton</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">AWS Service Catalog</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../systems-manager/">AWS Systems Manager</a>
                   </li>
@@ -366,7 +368,98 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h3 id="1-the-core-concept"><strong>1. The Core Concept</strong></h3>
+<p>AWS Service Catalog allows organizations to create and manage catalogs of IT services that are approved for use on AWS.</p>
+<ul>
+<li><strong>The Problem it Solves:</strong> Developers want to launch resources quickly, but the Security team doesn't want to give them full Admin access to creating whatever they want.</li>
+<li><strong>The Solution:</strong> The Security/Cloud team creates "Approved Templates" (Products) and puts them in a "Menu" (Portfolio). Developers can only launch items from this menu.</li>
+</ul>
+<h3 id="2-key-vocabulary-exam-keywords"><strong>2. Key Vocabulary (Exam Keywords)</strong></h3>
+<ul>
+<li><strong>Product:</strong></li>
+<li>A product is an IT service that you want to make available for deployment.</li>
+<li>
+<p><em>Crucial for Exam:</em> In Service Catalog, a "Product" is almost always defined by an <strong>AWS CloudFormation template</strong>.</p>
+</li>
+<li>
+<p><strong>Portfolio:</strong></p>
+</li>
+<li>A collection of "Products."</li>
+<li>
+<p>You assign Portfolios to specific IAM Users, Groups, or Roles.</p>
+</li>
+<li>
+<p><strong>Provisioning Artifact:</strong></p>
+</li>
+<li>
+<p>This is simply a <strong>version</strong> of a product. (e.g., v1.0 of your web server uses t2.micro, v2.0 uses t3.micro).</p>
+</li>
+<li>
+<p><strong>Constraints:</strong></p>
+</li>
+<li>Rules that limit how the product can be deployed.</li>
+<li><em>Example:</em> You can launch an EC2 instance, but the constraint forces it to be a <code>t2.micro</code> or <code>t3.micro</code>. You cannot launch a <code>c5.large</code>.</li>
+</ul>
+<hr />
+<h3 id="3-the-1-exam-topic-launch-constraints-the-magic-trick"><strong>3. The #1 Exam Topic: "Launch Constraints" (The Magic Trick)</strong></h3>
+<p>This is the most frequent Service Catalog question pattern on the exam.</p>
+<p><strong>The Scenario:</strong>
+You have a Junior Developer. You do <strong>not</strong> want to give them permission to create EC2 instances directly (no <code>ec2:RunInstances</code> permission). However, you <strong>do</strong> want them to be able to launch a specific, approved Web Server for their project.</p>
+<p><strong>The Solution:</strong>
+You use <strong>Service Catalog with a Launch Constraint</strong>.</p>
+<ol>
+<li>You create a <strong>Service Catalog Product</strong> (the Web Server CloudFormation template).</li>
+<li>You create an <strong>IAM Role</strong> that <em>does</em> have permission to create EC2 instances.</li>
+<li>You assign that Role to the Product as a <strong>Launch Constraint</strong>.</li>
+<li>The Junior Developer clicks "Launch."</li>
+</ol>
+<p><strong>The Result:</strong> The Developer triggers the launch, but <strong>the Service Catalog service assumes the Role</strong> to create the resources. The Developer never actually holds the permissions themselves.</p>
+<blockquote>
+<p><strong>Exam Rule:</strong> If a question asks how to allow users to provision resources <em>without</em> granting them direct access to the underlying AWS services, the answer is <strong>AWS Service Catalog with Launch Constraints.</strong></p>
+</blockquote>
+<hr />
+<h3 id="4-deployment-sharing-multi-account-strategy"><strong>4. Deployment &amp; Sharing (Multi-Account Strategy)</strong></h3>
+<p>The exam often asks how to share these standard templates across a large organization with many AWS accounts.</p>
+<ul>
+<li><strong>Hub and Spoke Model:</strong> You create the Portfolios in a central "Master" or "Hub" account.</li>
+<li><strong>AWS Organizations:</strong> You share the Portfolio with other AWS Accounts (or the entire Organization) using AWS Organizations integration.</li>
+<li><strong>Importing:</strong> The "Spoke" (child) accounts import the portfolio so their local users can see the products.</li>
+</ul>
+<hr />
+<h3 id="5-cheat-sheet-summary"><strong>5. Cheat Sheet Summary</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Exam Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Use Case</strong></td>
+<td>Governance, Compliance, and Self-Service.</td>
+</tr>
+<tr>
+<td><strong>Underlying Tech</strong></td>
+<td>Uses <strong>CloudFormation</strong> templates to define the infrastructure.</td>
+</tr>
+<tr>
+<td><strong>User Access</strong></td>
+<td>Users do not need permissions for the resources (e.g., EC2, RDS); they only need permission to use the <strong>Service Catalog</strong>.</td>
+</tr>
+<tr>
+<td><strong>Launch Role</strong></td>
+<td>Allows users to provision resources they normally don't have access to (Security via Obscurity/Proxy).</td>
+</tr>
+<tr>
+<td><strong>Tagging</strong></td>
+<td>You can enforce <strong>TagOption Libraries</strong> to ensure every resource launched automatically has the correct Cost Center tags.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="typical-exam-question-format"><strong>Typical Exam Question Format</strong></h3>
+<p><strong>Q:</strong> A company wants to ensure that developers only deploy RDS databases that are encrypted and use a specific instance size. The solution must minimize administrative overhead and allow developers to deploy these databases on demand.</p>
+<p><strong>A:</strong> Create a CloudFormation template for the RDS database with the required settings. Create a Product in <strong>AWS Service Catalog</strong>. Add the Product to a Portfolio and share it with the developers. Apply <strong>Template Constraints</strong> to restrict instance sizes.</p>
               
             </div>
           </div><footer>
