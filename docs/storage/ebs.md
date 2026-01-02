@@ -68,6 +68,12 @@
 <img src="../image.png" style="max-width: 100% !important; height: auto !important;" />
 </center>
 
+<img src="../image-24.png" />
+
+<img src="../image-25.png" />
+
+<img src="../image-26.png" />
+
 <img src="../image-18.png" />
 
 <img src="../image-19.png" />
