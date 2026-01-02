@@ -87,6 +87,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../budgets/">AWS Budgets</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">AWS Cost and Usage Report</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../cost-explorer/">AWS Cost Explorer</a>
                   </li>
@@ -147,7 +149,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../database/rds/">Amazon RDS</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../database/redshift/">Amazon Redshift</a>
+                  <li class="toctree-l1"><a class="" href="../../database/redshift.md">Amazon Redshift</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Developer Tools</span></p>
@@ -370,7 +372,100 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <p><img alt="alt text" src="../image-1.png" /></p>
+<h3 id="1-what-is-the-aws-cost-and-usage-report-cur"><strong>1. What is the AWS Cost and Usage Report (CUR)?</strong></h3>
+<ul>
+<li><strong>Definition:</strong> The most comprehensive and granular set of cost and usage data available in AWS.</li>
+<li><strong>Format:</strong> It is not a dashboard (like Cost Explorer). It is a <strong>raw data file</strong> (CSV or Parquet) that AWS delivers to an <strong>Amazon S3 bucket</strong> you define.</li>
+<li><strong>Update Frequency:</strong> AWS updates the report in your bucket at least once a day.</li>
+</ul>
+<h3 id="2-exam-keywords-triggers"><strong>2. Exam Keywords &amp; Triggers</strong></h3>
+<p>If you see these phrases in a question, <strong>CUR</strong> is likely the answer:</p>
+<ul>
+<li>"Most granular data available..."</li>
+<li>"Analyze costs at the <strong>individual resource ID</strong> level..."</li>
+<li>"Integrate billing data with <strong>third-party</strong> accounting tools..."</li>
+<li>"Use <strong>SQL</strong> to query billing data..." (implies CUR + Athena)</li>
+<li>"Create custom visualizations using <strong>Amazon QuickSight</strong>..."</li>
+</ul>
+<h3 id="3-key-features-for-saa-c03"><strong>3. Key Features for SAA-C03</strong></h3>
+<h4 id="a-granularity-the-1-differentiator"><strong>A. Granularity (The #1 Differentiator)</strong></h4>
+<ul>
+<li>Cost Explorer shows you costs by <em>Service</em> (e.g., "EC2") or <em>Linked Account</em>.</li>
+<li><strong>CUR</strong> shows you costs by <strong>Resource ID</strong> (e.g., "i-1234567890abcdef0").</li>
+<li><strong>Scenario:</strong> You need to find out exactly <em>which</em> specific EC2 instance contributed to a price spike at 2:00 AM. Cost Explorer might just show "EC2 rose," but CUR will show the specific instance ID and the exact hour.</li>
+</ul>
+<h4 id="b-integration-ecosystem-the-architecture-pattern"><strong>B. Integration Ecosystem (The Architecture Pattern)</strong></h4>
+<p>The exam often tests the "pipeline" of cost analysis. You should memorize this flow:</p>
+<ol>
+<li><strong>Source:</strong> AWS Billing generates the <strong>CUR</strong>.</li>
+<li><strong>Storage:</strong> CUR is delivered to an <strong>S3 Bucket</strong>.</li>
+<li><strong>Query:</strong> You use <strong>Amazon Athena</strong> to run SQL queries on the CUR files in S3.</li>
+<li><strong>Visualize:</strong> You connect <strong>Amazon QuickSight</strong> to Athena to build custom dashboards.</li>
+</ol>
+<h4 id="c-cost-allocation-tags"><strong>C. Cost Allocation Tags</strong></h4>
+<ul>
+<li>CUR includes all your active <strong>Cost Allocation Tags</strong>.</li>
+<li><strong>Exam Tip:</strong> You must <em>activate</em> tags in the Billing Console before they appear in the CUR. They are not retroactive.</li>
+</ul>
+<h4 id="d-reserved-instances-ri-savings-plans"><strong>D. Reserved Instances (RI) &amp; Savings Plans</strong></h4>
+<ul>
+<li>CUR provides columns specifically for amortized costs, helping you understand how your RIs or Savings Plans are being applied across your accounts on an hourly basis.</li>
+</ul>
+<hr />
+<h3 id="4-the-exam-trap-cur-vs-cost-explorer-vs-budgets"><strong>4. The "Exam Trap": CUR vs. Cost Explorer vs. Budgets</strong></h3>
+<p>The exam will try to confuse you. Use this table to pick the right tool:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>Cost Explorer</strong></th>
+<th><strong>AWS Budgets</strong></th>
+<th><strong>Cost &amp; Usage Report (CUR)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Goal</strong></td>
+<td>Visualize &amp; Forecast</td>
+<td>Alerting &amp; Thresholds</td>
+<td>Deep Analysis &amp; Raw Data</td>
+</tr>
+<tr>
+<td><strong>Format</strong></td>
+<td>Dashboard / Graphs</td>
+<td>Email / SNS Notification</td>
+<td>CSV / Parquet files in S3</td>
+</tr>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>High-level (Service/Account)</td>
+<td>Aggregate (Total spend)</td>
+<td><strong>Resource Level (Instance IDs)</strong></td>
+</tr>
+<tr>
+<td><strong>Skill</strong></td>
+<td>"I want to <em>see</em> my spend."</td>
+<td>"I want to be <em>warned</em>."</td>
+<td>"I want to <em>query</em> my spend."</td>
+</tr>
+<tr>
+<td><strong>Exam Keyword</strong></td>
+<td><strong>"Forecast"</strong> / "Trend"</td>
+<td><strong>"Alarm"</strong> / "Limit"</td>
+<td><strong>"Athena"</strong> / "Granular" / "BI Tool"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5-realistic-exam-scenario"><strong>5. Realistic Exam Scenario</strong></h3>
+<p><strong>Question:</strong> A company needs to perform a detailed analysis of their AWS costs to determine the exact storage cost of each individual S3 object and EC2 volume for internal chargeback. The solution must allow the use of standard SQL queries to analyze the data. Which solution should the Solutions Architect recommend?</p>
+<ul>
+<li><strong>A)</strong> Use AWS Cost Explorer to filter by resource tags. (Incorrect - Cost Explorer is not for SQL or individual object/resource deep dives).</li>
+<li><strong>B)</strong> Use AWS Budgets to set a threshold for S3 and EBS costs. (Incorrect - This alerts on cost, it doesn't analyze it).</li>
+<li><strong>C)</strong> Enable the AWS Cost and Usage Report (CUR) to deliver files to an S3 bucket, and use Amazon Athena to query the data. (<strong>Correct</strong> - "Detailed analysis," "SQL," and "S3 delivery" match CUR).</li>
+<li><strong>D)</strong> Use Amazon CloudWatch metrics to calculate the cost. (Incorrect - CloudWatch monitors performance/usage, not dollar costs).</li>
+</ul>
               
             </div>
           </div><footer>

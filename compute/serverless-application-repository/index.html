@@ -106,6 +106,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../outposts/">AWS Outposts</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">AWS Serverless Application Repository</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../vmware-cloud-on-aws/">VMware Cloud on AWS</a>
                   </li>
@@ -147,7 +149,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../database/rds/">Amazon RDS</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../database/redshift/">Amazon Redshift</a>
+                  <li class="toctree-l1"><a class="" href="../../database/redshift.md">Amazon Redshift</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Developer Tools</span></p>
@@ -370,7 +372,82 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <p>Think of it as <strong>"GitHub for AWS Serverless architectures."</strong> It is a library where you can find, deploy, and publish pre-built serverless applications.</p>
+<hr />
+<h3 id="1-the-core-exam-concept-dont-reinvent-the-wheel"><strong>1. The Core Exam Concept: "Don't Reinvent the Wheel"</strong></h3>
+<p>The primary exam scenario for SAR is <strong>reducing duplicated effort</strong>.</p>
+<ul>
+<li><strong>Scenario:</strong> Your company has 50 different teams. Every team needs a specific Lambda function that rotates API keys or resizes images.</li>
+<li><strong>Bad Solution:</strong> Every team writes their own Lambda code (wasted time, inconsistent quality).</li>
+<li><strong>Exam Answer (SAR):</strong> One team writes the "Gold Standard" function, publishes it to the Serverless Application Repository (Private), and all 50 teams just "pull and deploy" it into their accounts.</li>
+</ul>
+<hr />
+<h3 id="2-key-technical-features-exam-cheat-sheet"><strong>2. Key Technical Features (Exam Cheat Sheet)</strong></h3>
+<h4 id="a-how-it-works-the-stack"><strong>A. How it works (The Stack)</strong></h4>
+<ul>
+<li><strong>Underlying Tech:</strong> It runs on <strong>AWS SAM (Serverless Application Model)</strong>.</li>
+<li><strong>Deployment:</strong> When you "deploy" an app from the Repository, it actually creates a <strong>CloudFormation Stack</strong> in your account.</li>
+<li><strong>Nested Applications:</strong> You can include a SAR application <em>inside</em> your own serverless application. It becomes a "Nested Stack."</li>
+<li><em>Exam Tip:</em> If a question asks how to include a reusable auth module in your SAM template without copying the code, look for <strong>"Nested Application"</strong> or <strong>"AWS::Serverless::Application"</strong>.</li>
+</ul>
+<h4 id="b-sharing-models-public-vs-private"><strong>B. Sharing Models (Public vs. Private)</strong></h4>
+<p>The exam often tests <em>who</em> can see your application.</p>
+<ol>
+<li><strong>Public:</strong> Shared with the world (anyone with an AWS account).</li>
+<li><strong>Private:</strong> Only visible to the account that created it.</li>
+<li><strong>Privately Shared (Critical):</strong> Shared with specific <strong>AWS Account IDs</strong> or an entire <strong>AWS Organization</strong>.</li>
+<li><em>Keyword:</em> <strong>"Resource-based Policy."</strong> You control access by attaching a policy to the application, just like an S3 Bucket Policy.</li>
+</ol>
+<h4 id="c-cost"><strong>C. Cost</strong></h4>
+<ul>
+<li><strong>The Service:</strong> <strong>Free.</strong> There is no charge to host or browse the repository.</li>
+<li><strong>The Resources:</strong> <strong>You Pay.</strong> If you deploy a Lambda function from the repository, you pay for that Lambda's invocations and duration in your account.</li>
+</ul>
+<hr />
+<h3 id="3-serverless-repo-vs-aws-marketplace"><strong>3. Serverless Repo vs. AWS Marketplace</strong></h3>
+<p>This is a common confusion point on the exam.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>Serverless App Repository</strong></th>
+<th><strong>AWS Marketplace</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Use</strong></td>
+<td>Internal code sharing / Open Source patterns.</td>
+<td>Selling/Buying enterprise software.</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Free to use (pay for underlying resources).</td>
+<td>Often has licensing fees (SaaS subscriptions).</td>
+</tr>
+<tr>
+<td><strong>Publisher</strong></td>
+<td>Developers, Internal Teams.</td>
+<td>Independent Software Vendors (ISVs) like Splunk, Palo Alto.</td>
+</tr>
+<tr>
+<td><strong>Exam Trigger</strong></td>
+<td>"Share reusable code across teams," "Standardize serverless patterns."</td>
+<td>"Buy a managed firewall," "Deploy a third-party AMI," "Pay hourly software fees."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4-example-exam-question-scenario"><strong>4. Example Exam Question Scenario</strong></h3>
+<p><strong>Question:</strong> A company wants to standardize a serverless backend for their mobile apps. Multiple development teams need to use the same backend structure (API Gateway + Lambda + DynamoDB) but strictly within their own AWS accounts. The solution must minimize code duplication and ensure all teams use the approved architecture.</p>
+<p><strong>Correct Answer:</strong> Use <strong>AWS SAM</strong> to define the application. Publish it to the <strong>AWS Serverless Application Repository</strong> with <strong>Private Sharing</strong> enabled for the company's AWS Organization. Instruct teams to deploy the application from the repository as a nested stack.</p>
+<p><strong>Why:</strong></p>
+<ul>
+<li><strong>SAM:</strong> Defines the serverless structure.</li>
+<li><strong>Repo:</strong> Centralizes the storage.</li>
+<li><strong>Private/Org Sharing:</strong> Secures it so only employees can see it.</li>
+<li><strong>Nested Stack:</strong> Allows them to integrate it easily.</li>
+</ul>
               
             </div>
           </div><footer>
